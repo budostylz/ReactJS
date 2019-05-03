@@ -105,7 +105,7 @@ See how there's only one div element in the code above and that all other JSX is
         </ul>
         );
  
-In this example, we have two sibling elements that are both at the root level (i.e. '<h1> and <ul>') . This won't work and will give the error:
+In this example, we have two sibling elements that are both at the root level (i.e. h1 and ul) . This won't work and will give the error:
 
         Syntax error: Adjacent JSX elements must be wrapped in an enclosing tag
 
