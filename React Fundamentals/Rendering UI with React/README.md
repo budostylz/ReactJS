@@ -94,7 +94,7 @@ When writing JSX, keep in mind that it must only return a single element. This e
         </div>
         );
 
-See how there's only one <div> element in the code above and that all other JSX is nested inside it? This is how you have to write it if you want multiple elements. To be completely clear, the following is incorrect and will cause an error:
+See how there's only one div element in the code above and that all other JSX is nested inside it? This is how you have to write it if you want multiple elements. To be completely clear, the following is incorrect and will cause an error:
 
         const message = (
         <h1>All About JSX:</h1>
@@ -104,4 +104,11 @@ See how there's only one <div> element in the code above and that all other JSX 
         <li>awesome!</li>
         </ul>
         );
+ 
+In this example, we have two sibling elements that are both at the root level (i.e. '<h1> and <ul>') . This won't work and will give the error:
+
+        Syntax error: Adjacent JSX elements must be wrapped in an enclosing tag
+
+Since we know that JSX is really just a syntax extension for .createElement(), this makes sense; .createElement() takes in only one tag name (as a string) as its first argument.
+
         
