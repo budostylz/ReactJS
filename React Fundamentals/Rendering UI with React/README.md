@@ -104,6 +104,7 @@ See how there's only one <div> element in the code above and that all other JSX 
         <li>awesome!</li>
         </ul>
         );
+        
 In this example, we have two sibling elements that are both at the root level (i.e. <h1> and <ul>) . This won't work and will give the error:
 
         Syntax error: Adjacent JSX elements must be wrapped in an enclosing tag
@@ -134,6 +135,7 @@ In real-world use (and throughout this course), you may also see declarations li
         class ContactList extends Component {
                 // ...
         }
+        
 Both ways are functionally the same, but be sure your module imports match accordingly! That is, if you choose to declare components like the example directly above, your import from React will now look like:
 
         import React, { Component } from 'react';
