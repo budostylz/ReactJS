@@ -153,7 +153,94 @@ https://en.wikipedia.org/wiki/Single_responsibility_principle
 https://reactjs.org/docs/rendering-elements.html
 
 # Create Reat App
+https://youtu.be/x1fp0wLBI5w
+
+
+## Before Installing create-react-app
+If you already have Node.js on your machine, it's a good idea to reinstall it to make sure you have the latest version. Keep in mind that Node.js now comes with npm by default.
+
+### MacOS
+    1. Install Homebrew by running /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" in the terminal.
+    2. Check that it was installed by running brew --version. You should see the version number that was installed.
+    3. Run brew install node.
+    4. Run node --version.
+    5. Check that npm was installed as well by running npm --version.
+    6. Run brew install yarn --without-node.
+    7. Run npm --version.
+    8. Run yarn install && yarn --version    
+
+### Windows
+    1. Please download the Node.js Installer, go through the installation process, and restart your computer once you're done.
+    2. Please follow the yarn installation instructions.
+    3. Run yarn --version to make sure yarn has been successfully installed. 
+
+### Linux
+    1. Please follow these instructions to install Node.js.
+    2. Run sudo apt-get install -y build-essential.
+    3. Please follow the yarn installation instructions.
+    4. Run yarn --version to make sure yarn has been successfully installed.
+
+### Homebrew
+https://brew.sh
+
+### NodeJS
+https://nodejs.org/en/download/
+
+### Yarn
+https://yarnpkg.com/lang/en/docs/install/#windows-stable
+
+### Linux Instructions
+https://www.ostechnix.com/install-node-js-linux/
+
+### babel
+https://github.com/babel/babel
+
+### npm
+https://www.npmjs.com/get-npm
+
+### Resolving EACCES permissions errors when installing packages globally
+https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally
+
+## npm install -g create-react-app
+https://youtu.be/3igA5dQ7aPA
+
+## webpack
+https://github.com/webpack/webpack
+
+## The Yarn Package Manager
+Both in the following video and in the output of create-react-app, we're told to use yarn start to start the development server. If you haven't heard about it yet, Yarn is a package manager that's similar to NPM. Yarn was created from the ground up by Facebook to improve on some key aspects that are slow or lacking in NPM.
+
+If you don't want to install Yarn, you don't have to! What's great about it is that almost every use of yarn can be swapped with npm and everything will work just fine! So if the command is yarn start, you can use npm start to run the same command.
+
+## Running the Build
+https://youtu.be/Qpv2eBSsT1I
+
+The observant student might've noticed that my index.js file does not include the line registerServiceWorker(); that's showing in your project. The call to the Service Worker was added in the version of Create React App right after I recorded this video. Since we're not using Service Workers in this project, it won't affect anything. If you want to remove it, though. Feel free!
+
+## create-react-app
+https://github.com/facebook/create-react-app
+
+## Create Apps with No Configuration
+https://reactjs.org/blog/2016/07/22/create-apps-with-no-configuration.html
+
+## What's New in Create React App
+https://reactjs.org/blog/2017/05/18/whats-new-in-create-react-app.html
+
 # Composing with Components
+https://youtu.be/eKqhHxSVx-w
+
+https://youtu.be/edJunNTNX3A
+
+## Commit
+https://github.com/udacity/reactnd-contacts-app/commit/f1fbeff5533d82e33b075573fff684a99a82b845
+
+## Favor Composition Over Inheritance
+You might have heard before that it’s better to “favor composition over inheritance”. This is a principle that I believe is difficult to learn today. Many of the most popular programming languages make extensive use of inheritance, and it has carried over into popular UI frameworks like the Android and iOS SDKs.
+
+In contrast, React uses composition to build user interfaces. Yes, we extend React.Component, but we never extend it more than once. Instead of extending base components to add more UI or behavior, we compose elements in different ways using nesting and props. You ultimately want your UI components to be independent, focused, and reusable.
+
+So if you’ve never understood what it means to “favor composition over inheritance” you’ll definitely learn using React!
+
 
 
 
