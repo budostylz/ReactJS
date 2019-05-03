@@ -94,7 +94,7 @@ When writing JSX, keep in mind that it must only return a single element. This e
         </div>
         );
 
-See how there's only one '<div>' element in the code above and that all other JSX is nested inside it? This is how you have to write it if you want multiple elements. To be completely clear, the following is incorrect and will cause an error:
+See how there's only one <div> element in the code above and that all other JSX is nested inside it? This is how you have to write it if you want multiple elements. To be completely clear, the following is incorrect and will cause an error:
 
         const message = (
         <h1>All About JSX:</h1>
