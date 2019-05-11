@@ -31,6 +31,14 @@ https://reacttraining.com
 ## Composition over inheritance
 https://en.wikipedia.org/wiki/Composition_over_inheritance
 
+## 20 EASY-TO-USE MOCKUP TOOLS TO DESIGN YOUR NEXT APP
+https://codingsans.com/blog/mockup-tools
+
+## Thinking in React
+https://reactjs.org/docs/thinking-in-react.html
+
+
+
 
 
 
