@@ -22,6 +22,17 @@ https://confluence.atlassian.com/bitbucket/checkout-a-branch-into-a-local-reposi
 ## Ignoring files
 https://help.github.com/en/articles/ignoring-files
 
+## How to Use React Components in Angular 2+
+https://sdk.gooddata.com/gooddata-ui/docs/4.1.1/ht_use_react_component_in_angular_2.x.html
+
+## Expert React Training
+https://reacttraining.com
+
+## Composition over inheritance
+https://en.wikipedia.org/wiki/Composition_over_inheritance
+
+
+
 
 
 
