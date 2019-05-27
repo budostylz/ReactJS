@@ -24,27 +24,6 @@
 
 <script type="text/babel">
 
-//check Map-Filter Functionality elements
-const musicData = [
-    { artist: 'Adele', name: '25', sales: 1731000 },
-    { artist: 'Drake', name: 'Views', sales: 1608000 },
-    { artist: 'Beyonce', name: 'Lemonade', sales: 1554000 },
-    { artist: 'Chris Stapleton', name: 'Traveller', sales: 1085000 },
-    { artist: 'Pentatonix', name: 'A Pentatonix Christmas', sales: 904000 },
-    { artist: 'Original Broadway Cast Recording', name: 'Hamilton: An American Musical', sales: 820000 },
-    { artist: 'Twenty One Pilots', name: 'Blurryface', sales: 738000 },
-    { artist: 'Prince', name: 'The Very Best of Prince', sales: 668000 },
-    { artist: 'Rihanna', name: 'Anti', sales: 603000 },
-    { artist: 'Justin Bieber', name: 'Purpose', sales: 554000 }
-];
-
-
-console.log('Outputting from both Map and Filter Functions');
-const popular = musicData.filter( album => album.sales > 1000000 ).map( album => album.artist + ' is a great performer' );
-console.log(popular);
-
-
-
 
 // Obtain the root 
     const rootElement = document.getElementById('root')
@@ -82,6 +61,37 @@ function App(){
       rootElement
     )
 </script>
+
+<script>
+  window.addEventListener('mousedown', function(e) {
+    document.body.classList.add('mouse-navigation');
+    document.body.classList.remove('kbd-navigation');
+  });
+  window.addEventListener('keydown', function(e) {
+    if (e.keyCode === 9) {
+      document.body.classList.add('kbd-navigation');
+      document.body.classList.remove('mouse-navigation');
+    }
+  });
+  window.addEventListener('click', function(e) {
+    if (e.target.tagName === 'A' && e.target.getAttribute('href') === '#') {
+      e.preventDefault();
+    }
+  });
+  window.onerror = function(message, source, line, col, error) {
+    var text = error ? error.stack || error : message + ' (at ' + source + ':' + line + ':' + col + ')';
+    errors.textContent += text + '\n';
+    errors.style.display = '';
+  };
+  console.error = (function(old) {
+    return function error() {
+      errors.textContent += Array.prototype.slice.call(arguments).join(' ') + '\n';
+      errors.style.display = '';
+      old.apply(this, arguments);
+    }
+  })(console.error);
+  </script>
+
 
 <script type="application/javascript" src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
 <script type="application/javascript" src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>

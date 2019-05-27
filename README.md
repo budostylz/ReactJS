@@ -40,7 +40,17 @@ https://codingsans.com/blog/mockup-tools
 ## Thinking in React
 https://reactjs.org/docs/thinking-in-react.html
 
+## Lifecycle Diagram
+http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 
+## React: Component Lifecycle Events
+https://medium.com/@joshuablankenshipnola/react-component-lifecycle-events-cb77e670a093
+
+## How does React decide to re-render a component?
+https://lucybain.com/blog/2017/react-js-when-to-rerender/
+
+## React - Passing state from child to parent in drop down select
+https://stackoverflow.com/questions/49846679/react-passing-state-from-child-to-parent-in-drop-down-select
 
 
 
