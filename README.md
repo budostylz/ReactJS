@@ -55,6 +55,9 @@ https://lucybain.com/blog/2017/react-js-when-to-rerender/
 ## React - Passing state from child to parent in drop down select
 https://stackoverflow.com/questions/49846679/react-passing-state-from-child-to-parent-in-drop-down-select
 
+## 8 React conditional rendering methods
+https://blog.logrocket.com/conditional-rendering-in-react-c6b0e5af381e/
+
 
 
 
