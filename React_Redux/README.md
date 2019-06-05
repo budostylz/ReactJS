@@ -1,4 +1,5 @@
 # The Store
+view index.js
 
 ## Application Architecture and State
 https://youtu.be/IDdb6baBQyo
