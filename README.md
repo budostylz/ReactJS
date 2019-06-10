@@ -61,6 +61,16 @@ https://blog.logrocket.com/conditional-rendering-in-react-c6b0e5af381e/
 ## Using React and Redux in SharePoint Framework (SPFx)
 https://blogs.perficient.com/2017/08/10/using-react-and-redux-in-sharepoint-frameworkspfx/
 
+## Outro
+https://youtu.be/45ileyqFeGw
+
+## The what and why of Redux
+https://blog.pusher.com/the-what-and-why-of-redux/
+
+## Leveling Up with React: Redux
+https://css-tricks.com/learning-react-redux/
+
+
 
 
 

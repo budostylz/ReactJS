@@ -2,6 +2,8 @@
 <html>
     <head>
         <title> Udacity Todos Goals</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.7.2/redux.min.js"></script>
+        Redux
     </head>
 
     <body>
@@ -25,6 +27,8 @@
                 function generateId (){//helper function to generate unique id
                     return Math.random().toString(36).substring(2) + (new Date()).getTime().toString(36);
                 }
+
+                /*
 
                 //Library Code
                 function createStore(reducer){ // The Store
@@ -61,6 +65,8 @@
 
 
                 }
+
+                */
 
 
 
@@ -127,7 +133,7 @@
 
                     switch(action.type){
                         case ADD_TODO :
-                                return state.concat([action.todo])//new state will create, mutation will not occure because concat will return new array to avoid modifying state
+                                return state.concat([action.todo])//new state will create, mutation will not occur because concat will return new array to avoid modifying state
                         case REMOVE_TODO :
                                 return state.filter((todo) => todo.id !== action.id)
                         case TOGGLE_TODO :
@@ -153,16 +159,22 @@
                     }
                 }
 
+                /*
+                //Replace with Redux.combineReducers()
                 function app (state = {}, action){//app invokes both todos and goals reducers
                     return {
                         todos: todos(state.todos, action),
                         goals: goals(state.goals, action),
                     }
-                }
+                }*/
 
 
 
-                const store = createStore(app) //user invokes to return store
+                const store = Redux.createStore(Redux.combineReducers({
+                    todos,
+                    goals,
+
+                })) //user invokes to return store
 
                 store.subscribe(() => {//detects state changes in store
                     //console.log('The new state is: ', store.getState())
