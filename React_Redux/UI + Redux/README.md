@@ -71,7 +71,7 @@ https://cdnjs.cloudflare.com/ajax/libs/redux/3.7.2/redux.min.js
 ## Adding in Redux
 https://youtu.be/Sg482OZsFzM
 
-##Commit6
+## Commit6
 https://github.com/udacity/reactnd-redux-todos-goals/commit/d4975c2245e6d590f637e0873d30ae8d6454e372
 
 ## A predictable state container for JavaScript apps.
