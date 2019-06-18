@@ -6,7 +6,6 @@
         <script src="https://unpkg.com/react@16.3.0-alpha.1/umd/react.development.js"></script>
         <script src="https://unpkg.com/react-dom@16.3.0-alpha.1/umd/react-dom.development.js"></script>
         <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
-        <script src="https://tylermcginnis.com/goals-todos-api/index.js"></script>
 
     </head>
 
@@ -76,7 +75,6 @@
                 const TOGGLE_TODO = 'TOGGLE_TODO';
                 const ADD_GOAL = 'ADD_GOAL';
                 const REMOVE_GOAL = 'REMOVE_GOAL';
-                const RECEIVE_DATA = 'RECEIVE_DATA';
 
                 //action creators return actions if we want to get an action or dispatch an action
                 function addToDoAction(todo){
@@ -121,13 +119,7 @@
 
 
 
-                function receiveDataAction (todos, goals){
-                    return{
-                        type: RECEIVE_DATA,
-                        todos,
-                        goals
-                    }
-                }
+
 
                 function todos (state = [], action){//Pure Function
 
@@ -139,8 +131,6 @@
                         case TOGGLE_TODO :
                                 return state.map((todo) => todo.id !== action.id ? todo : // if todo.id === action.id, return todo without modification
                                 Object.assign({}, todo, { complete: !todo.complete }))    // if todo,id !== action.id, create a new object from todo      
-                        case RECEIVE_DATA :
-                                return action.todos
                         default : 
                             return state
                     }
@@ -154,8 +144,6 @@
                                 return state.concat([action.goal])//new state will create, mutation will not occur because concat will return new array to avoid modifying state
                         case REMOVE_GOAL :
                                 return state.filter((goal) => goal.id !== action.id)
-                        case RECEIVE_DATA :
-                                return action.goals
                         default : 
                             return state
 
@@ -163,15 +151,14 @@
                     }
                 }
 
-                function loading (state = true, action){
-                    switch(action.type){
-                        case RECEIVE_DATA :
-                            return false;
-                        default : 
-                            return state
-
+                /*
+                //Replace with Redux.combineReducers()
+                function app (state = {}, action){//app invokes both todos and goals reducers
+                    return {
+                        todos: todos(state.todos, action),
+                        goals: goals(state.goals, action),
                     }
-                }
+                }*/
 
                 const checker = (store) => (next) => (action) => {//ES6 Middleware, checker Middleware
 
@@ -233,7 +220,6 @@
                 const store = Redux.createStore(Redux.combineReducers({ //user invokes to return store and apply Middleware
                     todos,
                     goals,
-                    loading
 
                 }), Redux.applyMiddleware(checker, logger))//pass checker and logger Middleware, then hit reducer
 
@@ -269,37 +255,26 @@
             class Todos extends React.Component {
                 addItem = (e) => {
                     e.preventDefault();
-                    
-                    return API.saveTodo(this.input.value)
-                        .then((todo) => {
-                            this.props.store.dispatch(addToDoAction(todo))
-                            this.input.value = ''
-                        })
-                        .catch(() => {
-                            alert('There was an error. Try again.')
-                        })
+                    const name = this.input.value
+                    this.input.value = ''
+
+
+                    this.props.store.dispatch(addToDoAction({
+                        name,
+                        complete: false,
+                        id: generateId()
+
+                    }))
 
 
                 }
 
-                removeItem = (todo) => {//Optimistic Update
+                removeItem = (todo) => {
                     this.props.store.dispatch(removeToDoAction(todo.id))
-
-                    return API.deleteTodo(todo.id)
-                        .catch(() => {
-                            this.props.store.dispatch(addToDoAction(todo))
-                            alert('An error occurred. Try again.')
-                        })
                 }
 
-                toggleItem = (id) => {//Optimictic Toggling
+                toggleItem = (id) => {
                     this.props.store.dispatch(toggleToDoAction(id))
-
-                    return API.saveTodoToggle(id)
-                    .catch(() => {  
-                        this.props.store.dispatch(toggleToDoAction(id))
-                        alert('An error occurred. Try again.')
-                    })
                 }
 
                 render() {
@@ -325,23 +300,17 @@
             class Goals extends React.Component {
                 addItem = (e) => {
                     e.preventDefault();
+                    const name = this.input.value;
+                    this.input.value = ''
 
-                    return API.saveGoal(this.input.value)
-                        .then((goal) => {
-                            this.props.store.dispatch(addGoalAction(goal))
-                            this.input.value = ''
-                        })
-                        .catch(() => alert('There was an error. Try again.'))
+                    this.props.store.dispatch(addGoalAction({
+                        id: generateId(),
+                        name,
+                    }))
 
                 }
-                removeItem = (goal) => {//Optimistic Update
+                removeItem = (goal) => {
                     this.props.store.dispatch(removeGoalAction(goal.id))
-
-                    return API.deleteGoal(goal.id)
-                    .catch(() => {
-                        this.props.store.dispatch(addGoalAction(goal))
-                        alert('An error occurred. Try again.')
-                    })
 
                 }
                 render() {
@@ -371,24 +340,13 @@
 
                     const { store } = this.props
 
-                    Promise.all([//call multiple data sources then return
-                        API.fetchTodos(),
-                        API.fetchGoals()
-                    ]).then(([ todos, goals ]) => {
-                        store.dispatch(receiveDataAction(todos, goals))
-                    })
-
                     store.subscribe(() => this.forceUpdate())//this.forceUpdate is a anti-pattern
 
                 }
 
                 render() {
                     const { store } = this.props
-                    const { todos, goals, loading } = store.getState()
-
-                    if (loading === true){
-                        return <h3>Loading</h3>
-                    }
+                    const { todos, goals } = store.getState()
 
                     return (
                         <div>
