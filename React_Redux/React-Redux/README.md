@@ -200,3 +200,6 @@ We can avoid having the intermediary buildConnectedComponent variable and just c
 
 ## Official React bindings for Redux https://react-redux.js.org
 https://github.com/reduxjs/react-redux/
+
+## Folder Structure
+
