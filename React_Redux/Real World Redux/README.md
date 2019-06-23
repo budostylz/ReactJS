@@ -217,3 +217,25 @@ According to Dan Abramov, the creator of Redux, we should follow the following p
 
 Take a look at <a href="https://redux.js.org/faq/organizing-state" target="_blank">Organizing State</a> and <a href="https://github.com/reduxjs/redux/issues/1287" target="_blank">How to choose between Redux's store and React's state?</a> for further information about this.
 
+For each piece of data from Step 3, let's see whether it's used by multiple components or mutated in a complex way.
+
+<em>Text of the new tweet Used by:</em> New Tweet Component
+
+This piece of data is not used by multiple components and is not mutated in a complex way. That means that it's a great candidate for component state instead of app state that resides in the store.
+
+<em>Tweets Used by:</em> Dashboard Component, Tweet Page Component, Tweet Component
+
+In the Tweet Page Component, we need to show the reply tweets. Let's take a look at our starter code in the _Data.js file. This is how the tweets are stored in the database:
+
+        let tweets = {
+            tweetId: {
+                id: tweetId,
+                text: tweetText,
+                author: userId,
+                timestamp: timestamp,
+                likes: [userId1, userId2],
+                replies: [tweetId1, tweetId2],
+                replyingTo: tweetId_OR_null
+            }
+        };
+
