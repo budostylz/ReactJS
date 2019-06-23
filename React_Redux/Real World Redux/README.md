@@ -138,7 +138,7 @@ I broke this view into the following React Components:
         New Tweet - display the form to create a new tweet (reply)
 
 ## Components for the New Tweet View
-![Components for the New Tweet View](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/components_for_tweet_view.png "Components for the New Tweet View")
+![Components for the New Tweet View](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/create_new_tweet.png "Components for the New Tweet View")
 
 I broke this view into the following React Components:
 
