@@ -215,5 +215,5 @@ According to Dan Abramov, the creator of Redux, we should follow the following p
 
 <em>"Use Redux for state that matters globally or is mutated in complex ways… The rule of thumb is: do whatever is less awkward."</em>
 
-Take a look at <a href="https://redux.js.org/faq/organizing-state">Organizing State</a> and <a href="https://github.com/reduxjs/redux/issues/1287">How to choose between Redux's store and React's state?</a> for further information about this.
+Take a look at <a href="https://redux.js.org/faq/organizing-state" target="_blank">Organizing State</a> and <a href="https://github.com/reduxjs/redux/issues/1287" target="_blank">How to choose between Redux's store and React's state?</a> for further information about this.
 
