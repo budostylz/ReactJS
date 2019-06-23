@@ -84,7 +84,7 @@ Let's start by looking at the Dashboard View.
         shows all replies
 
 ## View for Creating a New Tweet
-https://s3.amazonaws.com/video.udacity-data.com/topher/2018/March/5abd5660_nd019-redux-l7-views-03-new-tweet/nd019-redux-l7-views-03-new-tweet.jpg
+![New Tweet View](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/create_new_tweet.png "New Tweet View")
 
 ## The New Tweet View Requirements
         is located at /new
@@ -117,7 +117,7 @@ Let's get started by drawing boxes around all of the components and giving them 
 Let's start with the Dashboard view.
 
 ## Components for the Dashboard View
-https://classroom.udacity.com/nanodegrees/nd019/parts/7dab5516-d1ae-45d3-b8f8-d782b5534caf/modules/221d27be-a830-49a3-9803-9aa4a114489c/lessons/f126db7d-157a-4b30-90de-17bd8b07208b/concepts/6bc00d52-4e7a-49e5-9988-a974f627bef1#
+![Components for the Dashboard View](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/components_for_dashboard_view.png "Components for the Dashboard View")
 
 I broke this view into the following React Components:
 
@@ -127,7 +127,7 @@ I broke this view into the following React Components:
         Tweet - in charge of display the content for a single tweet
 
 ## Components for the Tweet View
-https://s3.amazonaws.com/video.udacity-data.com/topher/2018/March/5abd56f5_nd019-redux-l7-components-02-tweet/nd019-redux-l7-components-02-tweet.png
+![Components for the Tweet View](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/components_for_tweet_view.png "Components for the Tweet View")
 
 I broke this view into the following React Components:
 
@@ -138,7 +138,7 @@ I broke this view into the following React Components:
         New Tweet - display the form to create a new tweet (reply)
 
 ## Components for the New Tweet View
-https://classroom.udacity.com/nanodegrees/nd019/parts/7dab5516-d1ae-45d3-b8f8-d782b5534caf/modules/221d27be-a830-49a3-9803-9aa4a114489c/lessons/f126db7d-157a-4b30-90de-17bd8b07208b/concepts/6bc00d52-4e7a-49e5-9988-a974f627bef1#
+![Components for the New Tweet View](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/components_for_tweet_view.png "Components for the New Tweet View")
 
 I broke this view into the following React Components:
 
