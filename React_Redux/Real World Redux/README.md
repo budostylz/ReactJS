@@ -71,7 +71,7 @@ Let's start by looking at the Dashboard View.
             a like button - with the number of likes (if higher than 0)
 
 ## View for the Tweet Page
-https://s3.amazonaws.com/video.udacity-data.com/topher/2018/March/5abd5636_nd019-redux-l7-views-02-tweet/nd019-redux-l7-views-02-tweet.jpg
+![Tweet View](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/tweet_page.png "Tweet View")
 
 ## Tweet Page View Requirements
         is located at /tweet/:id
