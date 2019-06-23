@@ -203,3 +203,17 @@ We <em>get</em> the <strong>authedUser</strong> so the user can create a new <st
 
 We <em>set</em> the text of the new <strong>tweets</strong>.
 
+# Planning Stage: Step 4 - Data and the Store
+
+## Determine What Data Lives in the Store
+Remember that the main problems that Redux (and the react-redux bindings!) was meant to solve were:
+
+        Propagation of props through the entire component tree.
+        Ensuring consistency and predictability of the state across the app.
+
+According to Dan Abramov, the creator of Redux, we should follow the following principle for determining whether to store a piece of data in the store or in a React component:
+
+<em>"Use Redux for state that matters globally or is mutated in complex ways… The rule of thumb is: do whatever is less awkward."</em>
+
+Take a look at <a href="https://redux.js.org/faq/organizing-state">Organizing State</a> and <a href="https://github.com/reduxjs/redux/issues/1287">How to choose between Redux's store and React's state?</a> for further information about this.
+
