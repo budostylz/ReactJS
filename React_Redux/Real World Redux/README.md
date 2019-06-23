@@ -172,7 +172,7 @@ We need to take a look at what is happening in each component. Let's determine w
 Let's italicize the action and bold the data.
 
 ## Tweets List Component
-https://classroom.udacity.com/nanodegrees/nd019/parts/7dab5516-d1ae-45d3-b8f8-d782b5534caf/modules/221d27be-a830-49a3-9803-9aa4a114489c/lessons/f126db7d-157a-4b30-90de-17bd8b07208b/concepts/bb335fa7-c62b-432f-96d0-fdacf739ce1c#
+![Tweets List Component](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/tweet_list_component.png "Tweets List Component")
 
 For the Tweets List component, the only information that we see is that we'll have to get a list of all of the tweets. So for this component, we just need to:
 
@@ -181,7 +181,7 @@ For the Tweets List component, the only information that we see is that we'll ha
 So the action type for event this will probably be something like GET_LIST_OF_TWEETS or GET_DATA
 
 ## Tweet Component
-https://classroom.udacity.com/nanodegrees/nd019/parts/7dab5516-d1ae-45d3-b8f8-d782b5534caf/modules/221d27be-a830-49a3-9803-9aa4a114489c/lessons/f126db7d-157a-4b30-90de-17bd8b07208b/concepts/bb335fa7-c62b-432f-96d0-fdacf739ce1c#
+![Tweet Component](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/tweet_component.png "Tweet Component")
 
 We <em>get</em> a particular tweet from a list of <strong>tweets</strong>.
 
@@ -190,14 +190,14 @@ We <em>get</em> the <strong>authedUser (user that is currently logged in)</stron
 We <em>get</em> the <strong>authedUser</strong> so the user can reply to a <strong>tweets</strong>.
 
 ## Tweet Container Component
-https://s3.amazonaws.com/video.udacity-data.com/topher/2018/March/5abd578d_nd019-redux-l7-store-03-tweet-container/nd019-redux-l7-store-03-tweet-container.png
+![Tweet Container Component](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/tweet_container_component.png "Tweet Container Component")
 
 We <em>get</em> a specific tweet from a list of <strong>tweets</strong>.
 
 We <em>get</em> the replies to a specific tweet from a list of <strong>tweets</strong>.
 
 ## New Tweet Component
-https://classroom.udacity.com/nanodegrees/nd019/parts/7dab5516-d1ae-45d3-b8f8-d782b5534caf/modules/221d27be-a830-49a3-9803-9aa4a114489c/lessons/f126db7d-157a-4b30-90de-17bd8b07208b/concepts/bb335fa7-c62b-432f-96d0-fdacf739ce1c#
+![New Tweet Component](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/new_tweet_component.png "New Tweet Component")
 
 We <em>get</em> the <strong>authedUser</strong> so the user can create a new <strong>tweets</strong>.
 
