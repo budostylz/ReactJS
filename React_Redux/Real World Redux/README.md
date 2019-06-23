@@ -162,7 +162,7 @@ Remember that Redux doesn't care about how our app looks or what components it u
 
 Let's move on to Step 3, where we'll start thinking about the data in this app.
 
-# Planning Statge: Step 3 - DEtermine Events in the App
+# Planning Statge: Step 3 - Determine Events in the App
 
 ## Determine What Events Happen in the App
 We need to take a look at what is happening in each component. Let's determine what actions the app or the user is performing on the data. Is the data being set, modified, or deleted?...then we'll need an action to keep track of that event!
@@ -182,18 +182,22 @@ So the action type for event this will probably be something like GET_LIST_OF_TW
 https://classroom.udacity.com/nanodegrees/nd019/parts/7dab5516-d1ae-45d3-b8f8-d782b5534caf/modules/221d27be-a830-49a3-9803-9aa4a114489c/lessons/f126db7d-157a-4b30-90de-17bd8b07208b/concepts/bb335fa7-c62b-432f-96d0-fdacf739ce1c#
 
 We <em>get</em> a particular tweet from a list of <strong>tweets</strong>.
+
 We <em>get</em> the <strong>authedUser (user that is currently logged in)</strong> so the user can <em>toggle</em> the likes on each <strong>tweets</strong>.
+
 We <em>get</em> the <strong>authedUser</strong> so the user can reply to a <strong>tweets</strong>.
 
 ## Tweet Container Component
 https://s3.amazonaws.com/video.udacity-data.com/topher/2018/March/5abd578d_nd019-redux-l7-store-03-tweet-container/nd019-redux-l7-store-03-tweet-container.png
 
 We <em>get</em> a specific tweet from a list of <strong>tweets</strong>.
+
 We <em>get</em> the replies to a specific tweet from a list of <strong>tweets</strong>.
 
 ## New Tweet Component
 https://classroom.udacity.com/nanodegrees/nd019/parts/7dab5516-d1ae-45d3-b8f8-d782b5534caf/modules/221d27be-a830-49a3-9803-9aa4a114489c/lessons/f126db7d-157a-4b30-90de-17bd8b07208b/concepts/bb335fa7-c62b-432f-96d0-fdacf739ce1c#
 
 We <em>get</em> the <strong>authedUser</strong> so the user can create a new <strong>tweets</strong>.
+
 We <em>set</em> the text of the new <strong>tweets</strong>.
 
