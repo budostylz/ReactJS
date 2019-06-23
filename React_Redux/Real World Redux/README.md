@@ -174,8 +174,8 @@ https://classroom.udacity.com/nanodegrees/nd019/parts/7dab5516-d1ae-45d3-b8f8-d7
 
 For the Tweets List component, the only information that we see is that we'll have to get a list of all of the tweets. So for this component, we just need to:
 
-        <em>get</em> the <bold>tweets</bold>
-        
+<em>get</em> the <bold>tweets</bold>
+
 So the action type for event this will probably be something like GET_LIST_OF_TWEETS or GET_DATA
 
 ## Tweet Component
