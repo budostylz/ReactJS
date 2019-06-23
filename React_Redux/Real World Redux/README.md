@@ -102,6 +102,8 @@ We now have a clear idea of what we're trying to build and can be confident that
 Now, let's move on to Step 2, where we'll make a conceptual skeleton of our app.
 
 ## Step 2: Break Each View Into a Hierarchy of Components
+https://reactjs.org/docs/thinking-in-react.html#step-1-break-the-ui-into-a-component-hierarchy
+
 In this step, we'll do 2 things:
 
         draw boxes around every component
