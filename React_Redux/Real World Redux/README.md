@@ -57,7 +57,7 @@ https://codingsans.com/blog/mockup-tools
 ## View for the Dashboard Page
 Let's start by looking at the Dashboard View.
 
-![Dashboard View!](/ReactJS/blob/master/React_Redux/Real%20World%20Redux/dashboardView.png "Dashboard View!")
+![Dashboard View](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/dashboardView.png "Dashboard View")
 
 ## Dashboard View Requirements
         is located at the home route (/)
