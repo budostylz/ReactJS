@@ -430,3 +430,97 @@ At this point, our store looks like this:
 
 ![The Store](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/store4.png "The Store")
 
+The tweets slice of the state in the store has been initialized to an empty object. The users slice of the state in the store has been initialized to an empty object. And, the authedUser slice of the state in the store has been initialized to null.
+
+So, we have a tweets to manage the tweets slice of the state, a users reducer to manage the users slice of the state, and an authedUser reducer to manage the authedUser portion of the state. Each of these reducers will manage just its own part of the state.
+
+We will combine all of these reducers into one main, root reducer, which will combine the results of calling the tweets reducer, users reducer, and authedUser reducer into a single state object. Remember, we need to do this because the createStore function only accepts a single reducer.
+
+        combineReducers({
+            authedUser: authedUser,
+            tweets: tweets,
+            users: users
+        });
+
+Or using ES6's <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer">property shorthand</a>, it can just be:
+
+        combineReducers({
+            authedUser,
+            tweets,
+            users
+        });
+
+Now that all of our reducers are set up, we need to actually create the store and provide it to our application. To actually use any of the code that we've written up to this point, we need to install the redux package. Then, to provide the store to our application, we'll also need to install the react-redux package.
+
+So install these packages and then restart your terminal:
+
+        yarn add react-redux redux
+
+## Creating The Store
+https://youtu.be/Ac3-sWH49XY
+
+<a href="https://github.com/udacity/reactnd-chirper-app/commit/99605e45670d8beabb571c77a8943d7c64f9be75">Here's the commit with the changes made in the previous videos.</a>
+
+## Middleware
+Our last bit of setup involves setting up the app's Middleware functions. Just like in the previous Todos application, we're going to create a logger middleware that will help us view the actions and state of the store as we interact with our application. Also, since the handleInitialData() action creator in src/actions/shared.js returns a function, we'll need to install the react-thunk package:
+
+        yarn add redux-thunk
+
+In the next video, we’ll hook up our redux-thunk middleware, so our thunk action creators actually work. We’ll also put in logger middleware to make debugging easier. Do you remember how to build custom middleware?
+
+All middleware follows this currying pattern:
+
+        const logger = (store) => (next) => (action) => {
+            // ...
+        }
+
+Use the <a href="https://babeljs.io/repl/" target="_blank">Babel Repl</a> if you want to see this code in ES5.
+
+The variable logger is assigned to a function that takes the store as its argument. That function returns another function, which is passed next (which is the next middleware in line or the dispatch function). That other function return another function which is passed an action. Once inside that third function, we have access to store, next, and action.
+
+It’s important to note that the value of the next parameter will be determined by the applyMiddleware function. Why? All middleware will be called in the order it is listed in that function. In our case, the next will be dispatch because logger is the last middleware listed in that function.
+
+## Project Middleware
+https://youtu.be/HXYqXy4uflw
+
+<a href="https://github.com/udacity/reactnd-chirper-app/commit/6176c497a95b10c101a0d9104a160d44645b40f2"> Here's the commit with the changes made in this video. </a>
+
+Here’s our middleware wiring:
+
+        export default applyMiddleware(
+            thunk,
+            logger
+        );
+Each thing returned by an action creator - be it an action or a function - will go through our thunk middleware. This is the source code for the thunk middleware:
+
+        function createThunkMiddleware(extraArgument) {
+        return ({ dispatch, getState }) => next => action => {
+            if (typeof action === 'function') {
+            return action(dispatch, getState, extraArgument);
+            }
+            return next(action);
+        };
+        }
+
+        const thunk = createThunkMiddleware();
+        thunk.withExtraArgument = createThunkMiddleware;
+
+        export default thunk;
+
+If the thunk middleware sees an action, that action will be sent to the next middleware in line - the logger middleware. If it sees a function, the thunk middleware will call that function. That function can contain side effects - such as API calls - and dispatch actions, simple Javascript objects. These dispatched actions will again go to all of the middleware. The thunk middleware will see that it’s a simple action and pass the action on to the next middleware, the logger.
+
+Once inside the logger:
+
+        const logger = store => next => action => {
+            console.group(action.type); 
+            console.log("The action:", action);
+            const returnValue = next(action);
+            console.log("The new state:", store.getState());
+            console.groupEnd();
+            return returnValue;
+        };
+
+
+
+
+
