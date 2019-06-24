@@ -377,3 +377,14 @@ Which is equivalent to this in ES6:
 Now, we need to give our components access to the data that came in. In other words, we need to populate the store with tweets and users.
 
 ![The Store](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/store3.png "The Store")
+
+The tweets slice of the state in the store will be modified by actions that go through the tweets reducer. The users slice of the state in the store will be modified by actions that go through the users reducer. And, similarly, the authedUser portion of the state in the store will be modified by actions that go through the authedUser reducer.
+
+
+## First Actions
+https://youtu.be/Px3vpZBHhHI
+
+## Authorized User Action
+https://youtu.be/-cqWNcFKB5E
+
+<a href="https://github.com/udacity/reactnd-chirper-app/commit/acc11b20446b9e19dc861ab9ec46d9de57aa6ea8" target="__blank">Here's the commit with the changes made in the previous videos.</a>
