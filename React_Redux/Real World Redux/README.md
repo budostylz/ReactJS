@@ -388,3 +388,45 @@ https://youtu.be/Px3vpZBHhHI
 https://youtu.be/-cqWNcFKB5E
 
 <a href="https://github.com/udacity/reactnd-chirper-app/commit/acc11b20446b9e19dc861ab9ec46d9de57aa6ea8" target="__blank">Here's the commit with the changes made in the previous videos.</a>
+
+## Reducers
+A <a href="https://redux.js.org/basics/reducers">Reducer</a> describes how an application's state changes. You’ll often see the <a href="https://redux.js.org/recipes/using-object-spread-operator">Object Spread Operator</a> (...) used inside of a reducer because a reducer must return a new object instead of mutating the old state. If you need a refresher on the spread operator, check out this ES6 lesson.
+
+If you want to know why Redux requires immutability, check out the <a href="https://redux.js.org/faq/immutable-data#why-is-immutability-required">Immutable Data Section of the docs</a>:.
+
+Reducers have the following signature:
+
+        (previousState, action) => newState
+
+In our app, the tweets reducer will determine how the tweets part of the state changes. The users reducer will determine how the users part of the state changes, and so forth:
+
+![The Store](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/store3.png "The Store")
+
+## Initializing State
+There are 2 ways to initialize the state inside the store:
+
+You can pass the initial state (or a part of the initial state) as preloadedState to the createStore function.
+For example:
+
+        const store = createStore (
+            rootReducer,
+            { tweets: {} }
+        );
+
+        You can include a default state parameter as the first argument inside a particular reducer function.
+        For example:
+
+        function tweets (state = {}, action) {
+        }
+
+To see how these approaches interact, check out the <a href="https://redux.js.org/recipes/structuring-reducers/initializing-state">Initializing State section of the documentation</a>.
+
+## Reducers
+https://youtu.be/QnntUz8r9lo
+
+In our app, we initialized each slice of the store by setting a default state value as the first parameter inside each reducer function.
+
+At this point, our store looks like this:
+
+![The Store](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/store4.png "The Store")
+
