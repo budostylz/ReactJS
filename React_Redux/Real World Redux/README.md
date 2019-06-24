@@ -373,5 +373,7 @@ Which is equivalent to this in ES6:
         function handleInitialData () {
             return (dispatch) => {}
         }
-        
+
 Now, we need to give our components access to the data that came in. In other words, we need to populate the store with tweets and users.
+
+![The Store](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/store3.png "The Store")
