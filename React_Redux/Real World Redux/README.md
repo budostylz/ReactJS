@@ -327,7 +327,7 @@ We are done making our store! While we were making our store, we also determined
 
 We are now at a good point to start coding. We will go view by view and fill in the details of our skeleton along the way.
 
-## Actions
+# Actions
 
 Let's start from the Dashboard View. Our Dashboard View displays a list of tweets and a menu.
 
@@ -388,6 +388,9 @@ https://youtu.be/Px3vpZBHhHI
 https://youtu.be/-cqWNcFKB5E
 
 <a href="https://github.com/udacity/reactnd-chirper-app/commit/acc11b20446b9e19dc861ab9ec46d9de57aa6ea8" target="__blank">Here's the commit with the changes made in the previous videos.</a>
+
+
+# Reducers & Middleware
 
 ## Reducers
 A <a href="https://redux.js.org/basics/reducers">Reducer</a> describes how an application's state changes. You’ll often see the <a href="https://redux.js.org/recipes/using-object-spread-operator">Object Spread Operator</a> (...) used inside of a reducer because a reducer must return a new object instead of mutating the old state. If you need a refresher on the spread operator, check out this ES6 lesson.
@@ -520,6 +523,39 @@ Once inside the logger:
             return returnValue;
         };
 
+# Initializing the App's Data
+
+We have previously determined that we need to get the users and tweets data from our database and send that data to our store, along with the authedUser data, when the home page loads.
+
+We have also created a thunk action creator that gets the data from the database and then dispatches actions to the store to set the three pieces of state we have in our store:
+
+        users
+        tweets
+        authedUser
+
+Here's what the handleInitialData() thunk action creator looks like:
+
+        function handleInitialData () {
+            return (dispatch) => {
+                return getInitialData()
+                .then(({ users, tweets }) => {
+                    dispatch(receiveUsers(users));
+                    dispatch(receiveTweets(tweets));
+                    dispatch(setAuthedUser(AUTHED_ID));
+                });
+            };
+        }
+
+Now, the question is where do we dispatch this action creator?
+
+When we walked through the architecture of our app, we saw that the App Component will contain every other component. If we load the initial data (by dispatching the handleInitialData() action creator) from the App component, then no matter which route our users goes to, they’ll see all of the correct data.
+
+## Initial Data
+https://youtu.be/ydXVJmVqebQ
+
+<a href="https://github.com/udacity/reactnd-chirper-app/commit/a81f80deee8ba2692f805ba445b761aeb7357398"> Here's the commit with the changes made in this video. </a>
+
+Using the connect() function upgrades a component to a container. Containers can read state from the store and dispatch actions. Read more about our ability to customize our container’s relationship with the store in the react-redux <a href="https://github.com/reduxjs/react-redux/tree/master/docs">API documentation</a>. Make sure to go through the excellent examples that are provided in the linked documentation to gain a deeper understanding of Redux.
 
 
 
