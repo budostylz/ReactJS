@@ -327,7 +327,51 @@ We are done making our store! While we were making our store, we also determined
 
 We are now at a good point to start coding. We will go view by view and fill in the details of our skeleton along the way.
 
+## Actions
 
+Let's start from the Dashboard View. Our Dashboard View displays a list of tweets and a menu.
 
+We need to take a look at what is happening in this view. Let's determine what actions the app or the user is performing on the data - is the data being set, modified, or deleted?
 
+Remember that in Step 4 of the Planning Stage, we determined that our store will look like this:
 
+![The Store](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/store2.png "The Store")
+
+When the app loads, the Dashboard View is displayed. The Dashboard Component therefore needs to:
+
+        get the tweets
+        get the users
+        get the authedUser
+
+This data is stored in a database. For this view to load all of the tweets (including their author's avatars), we need to 1) get the tweets and users data from the database; and then 2) to pass that data into the component.
+
+## Moving API requests in React to Redux-Saga’s
+https://hackernoon.com/moving-api-requests-to-redux-saga-21780f49cbc8
+
+## redux-axios-middleware
+https://github.com/svrcekmichal/redux-axios-middleware
+
+## What is the right way to do asynchronous operations in Redux?
+https://decembersoft.com/posts/what-is-the-right-way-to-do-asynchronous-operations-in-redux/
+
+Remember how normal Action Creators return actions - simple Javascript objects that then go to all of our reducers? Making an API request is an asynchronous action, so we cannot just send a plain Javascript object to our reducers. Redux middleware can gain access to an action when it's on its way to the reducers. We'll be using the redux-thunk middleware in this example.
+
+If the Redux Thunk middleware is enabled (which is done via the applyMiddleware() function), then any time your action creator returns a function instead of a Javascript object, it will go to the redux-thunk middleware.
+
+Dan Abramov <a href="https://stackoverflow.com/questions/35411423/how-to-dispatch-a-redux-action-with-a-timeout/35415559#35415559"> describes
+</a> what happens next:
+
+<em>"The middleware will call that function with dispatch method itself as the first argument...The action will only reach the reducers once the API request is completed. It will also “swallow” such actions so don't worry about your reducers receiving weird function arguments. Your reducers will only receive plain object actions—either emitted directly, or emitted by the functions as we just described."</em>
+
+Here's what a thunk action creator looks like:
+
+        function handleInitialData () { 
+            return function (dispatch) {}
+        }
+Which is equivalent to this in ES6:
+
+        function handleInitialData () {
+            return (dispatch) => {}
+        }
+        
+Now, we need to give our components access to the data that came in. In other words, we need to populate the store with tweets and users.
