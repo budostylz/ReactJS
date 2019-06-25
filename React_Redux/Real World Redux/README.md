@@ -557,6 +557,44 @@ https://youtu.be/ydXVJmVqebQ
 
 Using the connect() function upgrades a component to a container. Containers can read state from the store and dispatch actions. Read more about our ability to customize our container’s relationship with the store in the react-redux <a href="https://github.com/reduxjs/react-redux/tree/master/docs">API documentation</a>. Make sure to go through the excellent examples that are provided in the linked documentation to gain a deeper understanding of Redux.
 
+# Dashboard Component
 
+In Step 4 of the Planning Stage, we determined that our store should look like this:
 
+In our application, normalized state would look like this:
 
+        {
+            tweets: {
+                tweetId: { tweet id, author’s id, timestamp, text, likes, replies, replyingTo},
+                tweetId: { tweet id, author’s id, timestamp, text, likes, replies, replyingTo}
+            },
+            users: {
+                userId: {user’s id, user’s name, avatar, tweets array},
+                userId: {user’s id, user’s name, avatar, tweets array}
+            }
+        }
+
+In the Planning Stage, we also determined that the Dashboard Component will be a container since it will need access to the tweets part of the store in order to display the list of tweets.
+
+To make a container, we need to make use the connect() function. Remember that the signature of the connect function looks like this:
+
+        connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])
+
+Take a look at the <a href="https://github.com/reduxjs/react-redux/tree/master/docs">react-redux documentation</a> if you need a refresher.
+
+These details about mapStateToProps and mapDispatchToProps are crucial:
+
+<em>mapStateToProps - If this argument is specified, the new component will subscribe to Redux store updates. This means that any time the store is updated, mapStateToProps will be called. The results of mapStateToProps must be a plain object, which will be merged into the component’s props. If you don't want to subscribe to store updates, pass null or undefined in place of mapStateToProps.</em>
+
+<em>mapDispatchToProps - If an object is passed, each function inside it is assumed to be a Redux action creator. An object with the same function names, but with every action creator wrapped into a dispatch call so they may be invoked directly, will be merged into the component’s props. If a function is passed, it will be given dispatch as the first parameter. It’s up to you to return an object that somehow uses dispatch to bind action creators in your own way. (Tip: you may use the <a href="https://redux.js.org/api/bindactioncreators">bindActionCreators()</a> helper from Redux.)</em>
+
+Do you remember the Component Hierarchy we made in Step 2 of the Planning Stage? We said that the Tweet Component will be inside of the Dashboard Component. If the Dashboard Component knows the ID of the tweet that needs to be displayed, it can just pass that ID to the Tweet Component, which will render the tweet.
+
+Remember that the signature of the mapStateToProps function is:
+
+        mapStateToProps(state, [ownProps])
+        
+        state is the state inside the store
+        ownProps are the properties that have been passed to this component from a parent component
+
+Since we only care about the tweets part of the store, we can use destructuring to pass the tweets part of the state in the store as the parameter to the mapStateToProps() function.
