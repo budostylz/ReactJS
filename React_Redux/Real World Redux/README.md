@@ -593,8 +593,10 @@ Do you remember the Component Hierarchy we made in Step 2 of the Planning Stage?
 Remember that the signature of the mapStateToProps function is:
 
         mapStateToProps(state, [ownProps])
-        
+
         state is the state inside the store
         ownProps are the properties that have been passed to this component from a parent component
 
 Since we only care about the tweets part of the store, we can use destructuring to pass the tweets part of the state in the store as the parameter to the mapStateToProps() function.
+
+![mapStateToProps()](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/mapstatetoprops.png "mapStateToProps()")
