@@ -600,3 +600,16 @@ Remember that the signature of the mapStateToProps function is:
 Since we only care about the tweets part of the store, we can use destructuring to pass the tweets part of the state in the store as the parameter to the mapStateToProps() function.
 
 ![mapStateToProps()](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/mapstatetoprops.png "mapStateToProps()")
+
+So this is what the Dashboard Component's mapStateToProps() function looks like:
+
+        function mapStateToProps( {tweets} ){
+            return { tweetIds: Object.keys(tweets) };
+        }
+
+The important things to note are that:
+
+        tweets is the slice of the state that this component cares about
+        tweetIds will show up as a property on this container
+
+        
