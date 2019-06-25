@@ -1,11 +1,12 @@
+
+# React JavaScript
+https://reactjs.org/
+
 ## Markdown Basic Syntax
 https://www.markdownguide.org/basic-syntax/
 
 ## Babel Transpiler
 https://babeljs.io/repl/
-
-# React JavaScript
-https://reactjs.org/
 
 ## Tutorial: Intro to React
 https://reactjs.org/tutorial/tutorial.html
