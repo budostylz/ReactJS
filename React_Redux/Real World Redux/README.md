@@ -723,6 +723,99 @@ Remember that the tweets reducer will determine how the tweets part of the state
 
 ![combineReducers()](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/combineReducers.png "combineReducers()")
 
+## Tweet Reducer
+https://youtu.be/bHklEREK6gw
+
+## Tweet Component
+https://youtu.be/hPvYle9FdBk
+
+<a href="https://github.com/udacity/reactnd-chirper-app/commit/936be890e97aa1f241e792ccd3c542964dd71aa5">Here's the commit with the changes made in this video.</a>
+
+# New Tweet Component
+
+## New Tweet
+https://youtu.be/aEAUnJhyqCw
+
+<a href="https://github.com/udacity/reactnd-chirper-app/commit/c53a69a8b09a0dcab378761f683781c49ead072d">Here's the commit with the changes made in this video.</a>
+
+## Adding a New Tweet
+Let’s now work on the logic of adding a new tweet. Once the user submits a new tweet, it should show up in the list of all of tweets and be added to our database. Since this tweet will be used by more than one component, we know that we want to make sure the store is modified to reflect the updated list of tweets. Recording tweets in a database is an asynchronous operation, so we can use <a href="https://github.com/reduxjs/redux-thunk">Redux thunks</a> to issue the API request.
+
+## New Tweet Logic Actions
+https://youtu.be/MyjJlyv2H0I
+
+Let’s quickly cover a common JavaScript bug at this point.
+
+Make sure that whenever an arrow function has curly braces, you’re using a return statement, if you want to return something.
+
+Let’s start working on the New Tweet Reducer. How will we be modifying the state to reflect the new tweet?
+
+This is going to be a two-part process:
+
+the new tweet needs to be added to the list of tweets
+an already existing tweet needs to be modified if the new tweet is a response to another tweet
+In this reducer, we'll 1) concatenate the new tweet to the list of the already-existing tweets. Remember that the <a href="https://redux.js.org/recipes/using-object-spread-operator">object spread operator</a> offers us the most concise way of doing that; and 2) modify the replies property of the tweet the new tweet is replying to.
+
+## New Tweet Logic Reducer
+https://youtu.be/YdmgH1-U5jM
+
+## New Tweet Logic Component
+https://youtu.be/hWGIn12dGOM
+
+<a href="https://github.com/udacity/reactnd-chirper-app/commit/993f1b903e62bbd9ba78afdf4e8d698b7a0b8c66">Here's the commit with the changes made in this video.</a>
+
+In Step 2 of the Planning Stage, we determined that the New Tweet Component will show up inside of the App Component when the user goes to the /new page and that it will be inside of the Tweet Page Component when the user is on the /tweet/:id page.
+
+When the user is at the /new route, the new tweet will not be attached to another tweet. When the user is at the tweet/:id route, the new tweet will be attached to the already-displayed tweet. Notice that the route already contains the parent tweet’s id. We can just pass the id from the route to the New Tweet Component whenever we’re creating a reply tweet.
+
+What happens when someone clicks “Submit” to add a new tweet? The New Tweet Component will need to communicate with our store. We communicate with the store by dispatching actions. dispatch is a method on the store. That means that the New Tweet Component needs to be connect()ed to Redux. Once a component is connected to the store, it will have dispatch on its props.
+
+## Tweet Page
+https://youtu.be/4g9l8T2MLt4
+
+<a href="https://github.com/udacity/reactnd-chirper-app/commit/171ed69e495cadab991aff900b9ad5e2f4005c20">Here's the commit with the changes made in this video.</a>
+
+## Lesson Challenge
+Suppose we replaced the case ADD_TWEET: portion of the code in the reducers/tweets file with the code below.
+
+Would the state change in the same way? Why or why not?
+Would the new tweet appear on the page? Why or why not?
+Run the code to check your answer.
+
+        ...
+            case ADD_TWEET :
+            const { tweet } = action
+
+            let replyingTo = {}
+            if (tweet.replyingTo !== null) {
+                const allReplies = state[tweet.replyingTo].replies.concat([tweet.id]);
+
+                return {
+                ...state,
+                [action.tweet.id]: action.tweet,
+                [action.tweet.replyingTo.replies]: allReplies
+                }
+            }
+
+            return {
+                ...state,
+                [action.tweet.id]: action.tweet,
+                ...replyingTo,
+            }
+        ...
+
+## Further Learning
+Carefully go over the <a href="https://redux.js.org/recipes/structuring-reducers/immutable-update-patterns">Immutable Update Patterns</a> and <a href="https://redux.js.org/basics/reducers#designing-the-state-shape">Designing the State Shape</a> pages in the Redux documentation.
+
+Remember, that <a href="https://redux.js.org/recipes/structuring-reducers/immutable-update-patterns">doing a shallow copy of the top level is not sufficient - [nestedState objects] should be copied as well.</a>
+
+
+
+
+
+
+
+
 
 
 
