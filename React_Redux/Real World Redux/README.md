@@ -691,7 +691,29 @@ https://youtu.be/FvmgIlJPjQ8
 * Further Research
 <a href="https://itnext.io/the-perils-of-using-a-common-redux-anti-pattern-344d778e59da">The Perils of Using a Common Redux Anti-Patterns</a>
 
+# Liking a Tweet
+In the Planning stage, we figured out that we needed to give the Tweet Component access to the authedUser data for the tweet to correctly show whether the logged in user liked the tweet or not and for the user to reply to tweets. We also figured out that once the user likes or un-likes a tweet, that information needs to be reflected in the store for other components show the correct data.
 
+We’ll need to write an asynchronous action creator since we need to record whether the logged in user liked a tweet not only in the store but also in our database. <a href="https://github.com/reduxjs/redux-thunk">Redux thunks</a> to the rescue!
+
+We can write this as our thunk action creator:
+
+        function handleToggleTweet (info) {
+            return (dispatch) => {
+                saveLikeToggle(info)
+                .then(() => {
+                dispatch(toggleTweet(info));
+                })
+                .catch((e) => {
+                    console.warn('Error in handleToggleTweet: ', e);
+                    alert('There was an error liking the tweet. Try again.');
+                });
+            };
+        }
+
+Our code only updates the UI once we receive confirmation that the backend update was successful. This can make the app seem laggy.
+
+A common approach to UI updates is Optimistic Updating; updating the UI before the action gets recorded on the backend so it seems more performant. We’ll see that approach in the video below as we build out our Tweet Actions.
 
 
 
