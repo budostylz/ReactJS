@@ -612,4 +612,89 @@ The important things to note are that:
         tweets is the slice of the state that this component cares about
         tweetIds will show up as a property on this container
 
-        
+## Dashboard
+https://youtu.be/xjqf3vm3KjY
+
+<a href="https://github.com/udacity/reactnd-chirper-app/commit/baadd738d83c0b0905577192df8794d5460c2ba4">Here's the commit with the changes made in this video.</a>
+
+# Tweet Component
+In Step 4 of the Planning Stage, we saw that this component will need access to the following data:
+
+    users
+    tweets
+    authedUser
+
+Let's connect this component to the store!
+
+## Tweet State
+https://youtu.be/Q6sAKQaQTJ8
+
+Notice how we're passing an id prop along to the Tweet component:
+
+        <Tweet id={id} />
+
+Because we're doing this, the mapStateToProps function's second argument (ownProps) will be an object that has an id property with this value.
+
+![mapStateToProps()](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/mapstatetoprops2.png "mapStateToProps()")
+
+So as of right now, this is what the mapStateToProps function looks like:
+
+    function mapStateToProps ({authedUser, users, tweets}, { id }) {
+        const tweet = tweets[id];
+
+        return {
+            authedUser,
+            tweet: formatTweet(tweet, users[tweet.author], authedUser)
+        };
+    }
+
+The important thing to notice here is that mapStateToProps accepts two arguments:
+
+        the state of the store
+        the props passed to the Tweet component
+
+We're destructuring both arguments. From the store, we're extracting:
+
+        the authedUser data
+        the users data
+        the tweets data
+
+Then we're getting the id from the props passed to the Tweets Component. We need both of these pieces of data (coming from the store's state and coming from the component) so that we can determine which Tweet should be displayed by Tweet Component.
+
+## Handling A Parent Tweet
+https://youtu.be/fNHUigCJpkY
+
+        function mapStateToProps ({authedUser, users, tweets}, { id }) {
+            const tweet = tweets[id];
+            const parentTweet = tweet ? tweets[tweet.replyingTo] : null;
+
+            return {
+                authedUser,
+                tweet: tweet
+                ? formatTweet(tweet, users[tweet.author], authedUser, parentTweet)
+                : null
+            };
+        }
+
+Now that we're getting all of the data we need from the store, we can actually build the UI for the Tweet Component.
+
+## Tweet UI
+https://youtu.be/es890SLMDqM
+
+<a href="https://github.com/udacity/reactnd-chirper-app/commit/6db39add5b99c8e4996896ff3454c0239de4d5cc">Here's the commit with the changes made in this video.</a>
+
+## Loading
+https://youtu.be/FvmgIlJPjQ8
+
+<a href="https://github.com/udacity/reactnd-chirper-app/commit/1fdbaaa20d45fbb94dc461405f756f17815f20fd">Here's the commit with the changes made in this video.</a>
+
+* Further Research
+
+
+
+
+
+
+
+
+
