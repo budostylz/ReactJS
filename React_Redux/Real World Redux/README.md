@@ -715,6 +715,19 @@ Our code only updates the UI once we receive confirmation that the backend updat
 
 A common approach to UI updates is Optimistic Updating; updating the UI before the action gets recorded on the backend so it seems more performant. We’ll see that approach in the video below as we build out our Tweet Actions.
 
+## Tweet Actions
+https://youtu.be/2YTZZJTs4aw
+
+## Like Tweet Reducer
+Remember that the tweets reducer will determine how the tweets part of the state changes:
+
+![combineReducers()](https://github.com/budostylz/ReactJS/blob/master/React_Redux/Real%20World%20Redux/combineReducers.png "combineReducers()")
+
+
+
+
+
+
 
 
 
