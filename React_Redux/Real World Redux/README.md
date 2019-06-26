@@ -688,9 +688,12 @@ https://youtu.be/FvmgIlJPjQ8
 
 <a href="https://github.com/udacity/reactnd-chirper-app/commit/1fdbaaa20d45fbb94dc461405f756f17815f20fd">Here's the commit with the changes made in this video.</a>
 
-* Further Research
+<ul>
+    <li> Further Research</li>
+    <li><a href="https://itnext.io/the-perils-of-using-a-common-redux-anti-pattern-344d778e59da">The Perils of Using a Common Redux         Anti-Patterns</a>
+    </li>
+</ul>
 
-<a href="https://itnext.io/the-perils-of-using-a-common-redux-anti-pattern-344d778e59da">The Perils of Using a Common Redux Anti-Patterns</a>
 
 
 
