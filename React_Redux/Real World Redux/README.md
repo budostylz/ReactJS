@@ -809,6 +809,54 @@ Carefully go over the <a href="https://redux.js.org/recipes/structuring-reducers
 
 Remember, that <a href="https://redux.js.org/recipes/structuring-reducers/immutable-update-patterns">doing a shallow copy of the top level is not sufficient - [nestedState objects] should be copied as well.</a>
 
+# Using React Router
+We're pretty much finished with everything in our app! Our final step is to get the app to handling routing. We'll do this we React Router.
+
+        yarn add react-router-dom
+
+<strong>Quick</strong> <a href="https://reacttraining.com/react-router/web/guides/philosophy">React Router</a> <strong>Review</strong>
+
+BrowserRouter Component
+BrowserRouter listens for changes in the URL and makes sure that the correct screen shows up when the URL changes.
+
+Doing this:
+
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+
+will allow us to
+
+* use the other components browser-router-dom comes with inside of our app
+* listen to the URL so that whenever the url changes, the routing components will be notified of the change
+
+## Link Component
+
+        <Link to="/about">About</Link>
+
+Users navigate through React apps with the help of the Link Component.
+
+The Link component talks to the BrowserRouter and tells it to update the URL. By passing a to property to the Link component, you tell your app which path to route to.
+
+What if you wanted to pass state to the new route? Instead of passing a string to Links to prop, you can pass it an object like this:
+
+        <Link to={{
+            pathname: '/courses',
+            search: '?sort=name',
+            hash: '#the-hash',
+            state: { fromDashboard: true }
+        }}>
+            Courses
+        </Link>
+
+## React Router
+https://youtu.be/_cB8CE_Q3Yk
+
+<a href="https://github.com/udacity/reactnd-chirper-app/commit/512ddca69dd99d67acf4b9795b1000c2e728e899">Here's the commit with the changes made in this video.</a>
+
+
+
+
 
 
 
