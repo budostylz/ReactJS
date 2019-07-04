@@ -91,14 +91,14 @@ https://codesandbox.io/s/2z6wp2jozn
 ## Planning Stage 📐
 
 ## Step 1 - Draw All of the Views of the App
-We need to determine the look and functionality of each view in your app. One of the best approaches is to draw each view of the app on paper so that you'll have a good idea of what information and data you're planning to have on each page.
+We need to determine the look and functionality of each <a href="https://reactjs.org/docs/thinking-in-react.html">view</a> in your app. One of the best approaches is to draw each view of the app on paper so that you'll have a good idea of what information and data you're planning to have on each page.
 
 Instead of paper and pencil, you can be a bit more digital and use <a href="https://codingsans.com/blog/mockup-tools">software for creating mockups</a>. If you were given project specifications, check your mock against them to make sure that you have all of the required features.
 
 ## Step 2 - Break Each View Into a Hierarchy of Components
 For this step,
 
-* draw boxes around every component; and
+* <a href="https://reactjs.org/docs/thinking-in-react.html">draw boxes around every component</a>; and
 * arrange the components into a hierarchy
 
 ## Step 3 - Determine What Events Happen in the App
