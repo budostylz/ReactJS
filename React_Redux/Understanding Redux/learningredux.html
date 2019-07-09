@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Learning Redux </title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.7.2/redux.min.js"></script>
+        <script src="https://unpkg.com/react@16.3.0-alpha.1/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16.3.0-alpha.1/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+        <script src="https://tylermcginnis.com/goals-todos-api/index.js"></script>
+        <script src="https://unpkg.com/redux-thunk@2.2.0/dist/redux-thunk.min.js"></script>
+        <script src="https://unpkg.com/react-redux@5.0.6/dist/react-redux.min.js"></script>
+    </head>
+
+    <body>
+
+        <div id="app"></div>
+
+        <!-- State Management -->
+        <script type='text/javascript'>
+
+
+
+            // 1. action types
+            const ADD_TODO = 'ADD_TODO';
+            const REMOVE_TODO = 'REMOVE_TODO';
+            const TOGGLE_TODO = 'TOGGLE_TODO';
+            const ADD_GOAL = 'ADD_GOAL';
+            const REMOVE_GOAL = 'REMOVE_GOAL';
+
+            // 2. action creators return an action
+            function addToDoAction(todo){
+
+                return{
+                    type: ADD_TODO,
+                    todo
+                }
+            }
+
+            function removeToDoAction(id){
+
+                return{
+                    type: REMOVE_TODO,
+                    id
+                }
+            }
+
+            function toggleToDoAction(id){
+
+                return{
+                    type: TOGGLE_TODO,
+                    id
+                }
+            }
+
+            function addGoalAction(goal){
+
+                return{
+                    type: ADD_GOAL,
+                    goal
+                }
+            }
+
+            function removeGoalAction(id){
+
+                return{
+                    type: REMOVE_GOAL,
+                    id
+                }
+            }
+
+            //3. Reducers specify how the application's state changes in response to actions sent to the store
+            function todos (state = [], action){//Pure Function
+                switch(action.type){
+                    case ADD_TODO :
+                            return state.concat([action.todo])//new state will create, mutation will not occure because concat will return new array to avoid modifying state
+                    case REMOVE_TODO :
+                            return state.filter((todo) => todo.id !== action.id)
+                    case TOGGLE_TODO :
+                            return state.map((todo) => todo.id !== action.id ? todo : // if todo.id === action.id, return todo without modification
+                            Object.assign({}, todo, { complete: !todo.complete }))    // if todo,id !== action.id, create a new object from todo      
+                    default : 
+                        return state
+                }
+            }
+
+            function goals (state = [], action){
+                switch(action.type){
+                    case ADD_GOAL :
+                            return state.concat([action.goal])//new state will create, mutation will not occur because concat will return new array to avoid modifying state
+                    case REMOVE_GOAL :
+                            return state.filter((goal) => goal.id !== action.id)
+                    default : 
+                        return state
+
+
+                }
+            }
+
+            //4. Reducer Composition : Combine Reducers
+            function app (state = {}, action){//app invokes both todos and goals reducers
+                return {
+                    todos: todos(state.todos, action),
+                    goals: goals(state.goals, action),
+                }
+            }
+
+
+            //5. Build Store. The store should function as follows:
+            //5.1. HOLDS application state
+            //5.2. Allows ACCESS to state via getState()
+            //5.3. Allows state to be UPDATED via dispatch(action)
+            //5.4. Registers LISTENERS via subscribe(listener)
+            //5.5. Handles unregistering of LISTENERS via the function returned by subscribe(listener)
+
+            function createStore(reducer){ 
+
+                    let state //hold state of entire application
+                    let listeners = []
+
+                    const getState = () => state //provide way to get access to state
+
+                    const subscribe = (listener) => {//push function being passed to subscibe when invoked
+                        listeners.push(listener)
+                        return () => {
+                            listeners = listeners.filter((l) => l !== listener)//filter out original listener function once subscribed is invoked
+                        }
+                    }
+
+                    const dispatch = (action) =>{//receive action to tell dispatch the specific event that occurs inside application
+                        state = reducer(state, action);//call app function
+                        //listeners.forEach((listener) => listener())
+
+                        console.log('listening to state: ' + listeners.length)
+                        console.log(listeners)
+
+                        listeners.forEach(function (listener) {
+                            //console.log(listener)
+                            return listener();
+                        });
+                    }
+
+
+
+                    return { //return state when createStore is invoked
+                        getState,
+                        subscribe,
+                        dispatch
+                    }
+
+
+                }
+
+                //6. Create store
+                const store = createStore(app)
+
+                //7. Detect Changes in State
+                store.subscribe(() => {
+                    console.log('The new state is: ', store.getState())
+                })
+
+                //8. Dispatch some actions
+                store.dispatch(addToDoAction({
+                    id: 0,
+                    name: 'Walk the dog',
+                    complete: false
+                }))
+
+                store.dispatch(addToDoAction({
+                    id: 1,
+                    name: 'Wash the car',
+                    complete: false
+                }))
+
+                store.dispatch(removeToDoAction(1))
+
+                
+                
+
+
+                
+
+               
+
+        </script>
+
+        <!-- React App -->
+        <script type="text/babel">
+
+
+        </script>
+    </body>
+</html>

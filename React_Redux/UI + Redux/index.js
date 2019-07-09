@@ -1,10 +1,10 @@
 //Library Code
 function createStore(reducer){ // The Store
     // The store should have four parts
-    // 1. The state
-    // 2. Get the state.
-    // 3. Listen to changes on the state
-    // 4. Update the state
+    // 1. The state : let state
+    // 2. Get the state : getState = () => state
+    // 3. Listen to changes on the state : const subscribe = (listener) => {}
+    // 4. Update the state : const dispatch = (action) => {}
 
     let state //hold state of entire application
     let listeners = []
@@ -99,7 +99,7 @@ function todos (state = [], action){//Pure Function
 
     switch(action.type){
         case ADD_TODO :
-                return state.concat([action.todo])//new state will create, mutation will not occure because concat will return new array to avoid modifying state
+                return state.concat([action.todo])//new state will create, mutation will not occur because concat will return new array to avoid modifying state
         case REMOVE_TODO :
                 return state.filter((todo) => todo.id !== action.id)
         case TOGGLE_TODO :
@@ -126,6 +126,7 @@ function goals (state = [], action){
 }
 
 function app (state = {}, action){//app invokes both todos and goals reducers
+    
     return {
         todos: todos(state.todos, action),
         goals: goals(state.goals, action),
@@ -133,12 +134,18 @@ function app (state = {}, action){//app invokes both todos and goals reducers
 }
 
 
-
+//1. Create Store
 const store = createStore(app) //user invokes to return store
 
+console.log(store)
+
+
+//2. Detect changes in state
 store.subscribe(() => {//detects state changes in store
     console.log('The new state is: ', store.getState())
 })
+
+
 
 //dispatch action
 store.dispatch(addToDoAction({
@@ -147,6 +154,7 @@ store.dispatch(addToDoAction({
     complete: false
 }))
 
+/*
 
 store.dispatch(addToDoAction({
     id: 1,
@@ -174,6 +182,8 @@ store.dispatch(addGoalAction({
 }))
 
 store.dispatch(removeGoalAction(0))
+
+*/
 
 
 
