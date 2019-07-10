@@ -9,6 +9,7 @@
         <script src="https://tylermcginnis.com/goals-todos-api/index.js"></script>
         <script src="https://unpkg.com/redux-thunk@2.2.0/dist/redux-thunk.min.js"></script>
         <script src="https://unpkg.com/react-redux@5.0.6/dist/react-redux.min.js"></script>
+        <script src="_state.js"></script>
     </head>
 
     <body>
@@ -21,49 +22,47 @@
 
 
             // 1. action types
-            const ADD_TODO = 'ADD_TODO';
-            const REMOVE_TODO = 'REMOVE_TODO';
-            const TOGGLE_TODO = 'TOGGLE_TODO';
-            const ADD_GOAL = 'ADD_GOAL';
-            const REMOVE_GOAL = 'REMOVE_GOAL';
+            const GET_USER = 'GET_USER';  
+            const GET_ANSWEREDOPTIONS  = 'GET_ANSWEREDOPTIONS';
+            const GET_NEWOPTIONS = 'GET_NEWOPTIONS';
+            const GET_SCORE = 'GET_SCORE';
+            const GET_AVATAR = 'GET_AVATAR';
+            const GET_OPTIONS = 'GET_OPTIONS';
+            const GET_VOTES = "GET_VOTES";
+            const GET_PERCENTAGES = "GET_PERCENTAGES";
 
             // 2. action creators return an action
-            function addToDoAction(todo){
-
+            function userAction(todo){
                 return{
-                    type: ADD_TODO,
+                    type: GET_USER,
                     todo
                 }
             }
 
-            function removeToDoAction(id){
-
+            function answerOptionsAction(id){
                 return{
-                    type: REMOVE_TODO,
+                    type: GET_ANSWEREDOPTIONS,
                     id
                 }
             }
 
-            function toggleToDoAction(id){
-
+            function newOptionsAction(id){
                 return{
-                    type: TOGGLE_TODO,
+                    type: GET_NEWOPTIONS,
                     id
                 }
             }
 
             function addGoalAction(goal){
-
                 return{
-                    type: ADD_GOAL,
+                    type: GET_SCORE,
                     goal
                 }
             }
 
             function removeGoalAction(id){
-
                 return{
-                    type: REMOVE_GOAL,
+                    type: GET_AVATAR,
                     id
                 }
             }
@@ -71,11 +70,11 @@
             //3. Reducers specify how the application's state changes in response to actions sent to the store
             function todos (state = [], action){//Pure Function
                 switch(action.type){
-                    case ADD_TODO :
+                    case GET_USER :
                             return state.concat([action.todo])//new state will create, mutation will not occure because concat will return new array to avoid modifying state
-                    case REMOVE_TODO :
+                    case GET_ANSWEREDOPTIONS :
                             return state.filter((todo) => todo.id !== action.id)
-                    case TOGGLE_TODO :
+                    case GET_NEWOPTIONS :
                             return state.map((todo) => todo.id !== action.id ? todo : // if todo.id === action.id, return todo without modification
                             Object.assign({}, todo, { complete: !todo.complete }))    // if todo,id !== action.id, create a new object from todo      
                     default : 
@@ -85,9 +84,9 @@
 
             function goals (state = [], action){
                 switch(action.type){
-                    case ADD_GOAL :
+                    case GET_SCORE :
                             return state.concat([action.goal])//new state will create, mutation will not occur because concat will return new array to avoid modifying state
-                    case REMOVE_GOAL :
+                    case GET_AVATAR :
                             return state.filter((goal) => goal.id !== action.id)
                     default : 
                         return state
@@ -97,10 +96,11 @@
             }
 
             //4. Reducer Composition : Combine Reducers
-            function app (state = {}, action){//app invokes both todos and goals reducers
+            function app (state = initialState, action){//app invokes both todos and goals reducers
                 return {
                     todos: todos(state.todos, action),
                     goals: goals(state.goals, action),
+
                 }
             }
 
@@ -112,9 +112,9 @@
             //5.4. Registers LISTENERS via subscribe(listener)
             //5.5. Handles unregistering of LISTENERS via the function returned by subscribe(listener)
 
-            function createStore(reducer){ 
+            function createStore(reducer, state = initialState){ 
 
-                    let state //hold state of entire application
+                    //let state //hold state of entire application
                     let listeners = []
 
                     const getState = () => state //provide way to get access to state
@@ -130,8 +130,8 @@
                         state = reducer(state, action);//call app function
                         //listeners.forEach((listener) => listener())
 
-                        console.log('listening to state: ' + listeners.length)
-                        console.log(listeners)
+                        //console.log('listening to state: ' + listeners.length)
+                        //console.log(listeners)
 
                         listeners.forEach(function (listener) {
                             //console.log(listener)
@@ -158,20 +158,57 @@
                     console.log('The new state is: ', store.getState())
                 })
 
+                //console.log('initial state: ', initialState)
+
+                console.log('The new state is: ', store.getState())
+
+
+
+                
+
+                
                 //8. Dispatch some actions
-                store.dispatch(addToDoAction({
+                store.dispatch(userAction({
                     id: 0,
                     name: 'Walk the dog',
-                    complete: false
+                    complete: false,
+                    test: false
                 }))
 
-                store.dispatch(addToDoAction({
+                store.dispatch(userAction({
                     id: 1,
                     name: 'Wash the car',
                     complete: false
                 }))
 
-                store.dispatch(removeToDoAction(1))
+                store.dispatch(addGoalAction({
+                    id: 0,
+                    name: 'Learn Redux'
+                }))
+                
+
+                
+
+                store.dispatch(answerOptionsAction(1))
+
+
+                /*
+                    {
+                        goals: [],
+                        todos: [
+                            0 : {
+                                id: 0,
+                                name:'walk the dog',
+                                complete:false
+                            }
+
+                        ]
+                    }
+                
+                
+                
+                */
+
 
                 
                 
