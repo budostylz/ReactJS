@@ -9,7 +9,6 @@
         <script src="https://tylermcginnis.com/goals-todos-api/index.js"></script>
         <script src="https://unpkg.com/redux-thunk@2.2.0/dist/redux-thunk.min.js"></script>
         <script src="https://unpkg.com/react-redux@5.0.6/dist/react-redux.min.js"></script>
-        <script src="_state.js"></script>
     </head>
 
     <body>
@@ -29,125 +28,144 @@
             
             */
 
-                //Library Code
-                function createStore(reducer){ // The Store
-                    // The store should have four parts
-                    // 1. The state
-                    // 2. Get the state.
-                    // 3. Listen to changes on the state
-                    // 4. Update the state
+        //Library Code
+        function createStore(reducer){ // The Store
+            // The store should have four parts
+            // 1. The state
+            // 2. Get the state.
+            // 3. Listen to changes on the state
+            // 4. Update the state
 
-                    let state //hold state of entire application
-                    let listeners = []
+            let state //hold state of entire application
+            let listeners = []
 
-                    const getState = () => state //provide way to get access to state
+            const getState = () => state //provide way to get access to state
 
-                    const subscribe = (listener) => {//push function being passed to subscibe when invoked
-                        listeners.push(listener)
-                        return () => {
-                            listeners = listeners.filter((l) => l !== listener)//filter out original listener function once subscribed is invoked
+            const subscribe = (listener) => {//push function being passed to subscibe when invoked
+                listeners.push(listener)
+                return () => {
+                    listeners = listeners.filter((l) => l !== listener)//filter out original listener function once subscribed is invoked
+                }
+            }
+
+            const dispatch = (action) =>{//receive action to tell dispatch the specific event that occurs inside application
+                state = reducer(state, action);//call app function
+                listeners.forEach((listener) => listener())
+            }
+
+
+
+            return { //return state when createStore is invoked
+                getState,
+                subscribe,
+                dispatch
+            }
+
+
+        }
+
+
+
+
+        /*
+            Reduce function todos() inputs are state and action.
+            Output is new state.
+        */
+        // App Code
+
+        //define action names
+        const ADD_USERS = 'ADD_USERS';
+        const GET_ANSWEREDOPTIONS = 'GET_ANSWEREDOPTIONS';
+
+        //action creators return actions if we want to get an action or dispatch an action
+        function addUsers(user){
+            return{
+                type: ADD_USERS,
+                user
+            }
+        }
+
+        function answeredOptions(id){
+            return{
+                type: GET_ANSWEREDOPTIONS,
+                id
+            }
+        }
+
+        function userActions(state = [], action){//Pure Function
+
+            switch(action.type){
+                
+                case ADD_USERS :
+                        return state.concat([action.user])//new state will create, mutation will not occur because concat will return new array to avoid modifying state
+                default : 
+                    return state
+            }
+            
+        }
+
+        function answerActions(state = [], action){//Pure Function
+            switch(action.type){
+
+                case GET_ANSWEREDOPTIONS :
+                    return state.map((todo) => todo.id !== action.id ? todo : 
+                    Object.assign({}, todo, 
+                        { 
+                            complete: !todo.complete 
                         }
+                    ))        
+                
+                default : 
+                    return state
+            }
+        }
+
+
+
+        function app (state = {}, action){//app invokes both todos and goals reducers
+            return {
+                Users: userActions(state.user, action),
+                AnsweredOptions: answerActions(state.id, action)
+            }
+        }
+
+
+
+        const store = createStore(app) //user invokes to return store
+
+        store.subscribe(() => {//detects state changes in store
+            console.log('The new state is: ', store.getState())
+        })
+
+        //dispatch actions
+        store.dispatch(addUsers({ //UI : Dropdown Box for Selected User on Sign In
+            userID : {
+
+                1 : {
+                        "lastName" :"Lewis",
+                        "firstName" :"Shaun"
+                    },
+
+                2 : {
+                        "lastName" : "English",
+                        "firstName" : "Johnny"
                     }
-
-                    const dispatch = (action) =>{//receive action to tell dispatch the specific event that occurs inside application
-                        state = reducer(state, action);//call app function
-                        listeners.forEach((listener) => listener())
-                    }
-
-
-
-                    return { //return state when createStore is invoked
-                        getState,
-                        subscribe,
-                        dispatch
-                    }
-
-
-                }
-
-
-
-
-                /*
-                    Reduce function todos() inputs are state and action.
-                    Output is new state.
-                */
-                // App Code
-
-                //define action names
-                const ADD_USER = 'ADD_USER';
-
-                //action creators return actions if we want to get an action or dispatch an action
-                function addUser(user){
-
-                    return{
-                        type: ADD_USER,
-                        user
-                    }
-                }
+            }
+        }))
 
 
 
 
 
 
-                function entities (state = [], action){//Pure Function
-
-                    switch(action.type){
-                        case ADD_USER :
-                                return state.concat([action.user])//new state will create, mutation will not occure because concat will return new array to avoid modifying state
-                        default : 
-                            return state
-                    }
-                    
-                }
-
-
-                function app (state = {}, action){//app invokes both todos and goals reducers
-                    return {
-                        entities: entities(state.entities, action),
-                    }
-                }
 
 
 
-                const store = createStore(app) //user invokes to return store
-
-                store.subscribe(() => {//detects state changes in store
-                    console.log('The new state is: ', store.getState())
-                })
-
-                //dispatch action
-                store.dispatch(addUser({
-                    Users : {
-                                userID : {
-                                    1 : {
-                                        "lastName" :"Lewis",
-                                        "firstName" :"Shaun"
-    
-                                    }
-    
-                                }
-                            },                
-                    }))
 
 
-                    store.dispatch(addUser({
-                    Users : {
-                                userID : {
-                                    1 : {
-                                        "lastName" :"Lewis",
-                                        "firstName" :"Shaun"
-    
-                                    },
-    
-                                    2 : {
-                                        "lastName" : "English",
-                                        "firstName" : "Johnny"
-                                    }
-                                }
-                            },                
-                    }))
+
+
+
 
 
 
