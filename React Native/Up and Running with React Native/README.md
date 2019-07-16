@@ -27,7 +27,6 @@ This process of creating an object representation of the DOM is the whole idea b
 ## Further Research
 <a href="https://tadeuzagallo.com/blog/react-native-bridge/">Bridging in React Native</a>
 
-## 12 Common Questions from Working with React Native
 <a href="https://medium.com/dailyjs/12-common-questions-about-react-native-74fc9ba49b17">12 Common Questions from Working with React Native</a>
 
 
