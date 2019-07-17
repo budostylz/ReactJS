@@ -72,5 +72,150 @@ We'll be relying on Expo heavily in this course. First things first: you need to
 * <a href="https://apps.apple.com/us/app/expo-client/id982107779">Expo on Google Play</a> (Android)
 * <a href="https://apps.apple.com/us/app/expo-client/id982107779">Expo on the App Store</a> (iOS)
 
+<strong>The set up for the Android simulator can be quite complicated. Moreover, Expo can be unreliable at times. Don't get discouraged! Try using an <a href="https://snack.expo.io/">Expo Snack</a>🍎 to build the class project and the course project if you're having trouble setting up your local environment.</strong>
+
+## Simulators 📱
+Expo together with Create React Native App is the fastest way to get up and running, but there are also other ways to start building your projects, as well. If you're looking to integrate React Native into an existing app, or if you've ejected your app from Create React Native App, feel free to follow the <a href="https://facebook.github.io/react-native/docs/getting-started.html">Building Projects with Native Code</a> tab from the React Native docs. The guide also sets up iOS and Android simulators, allowing you to view your mobile apps right on your machine!
+
+We'll be utilizing both iOS and Android simulators in the interest of demoing projects in this course, but they are completely optional in getting started.
+
+Installing Simulators
+🔷 iPhone Simulator 🔷
+iOS apps can only be developed on a Mac unless you have a virtual machine set up on your machine. To set up the iPhone simulator on your Mac, follow these instructions:
+
+1) Go to the App Store.
+
+2) Download Xcode.
+
+3) Follow the installation instructions.
+
+4) Open Xcode and install additional software if prompted to do so.
+
+<strong>If you already have Xcode installed, please make sure that you update it. Then, open it to make sure no further updates are needed. Most problems with setting up your React Native development environment can be solved this way.</strong>
+
+5) Open Xcode and go to "Preferences."
+
+6) Go to the "Locations" panel and select the most recent version in the "Command Line Tools" drop-down list.
+
+7) That’s it!
+
+🔷Android Simulator 🔷
+The setup is kind of complicated, but we'll get through it together.
+
+Part 1
+
+1) Install a recent version of the <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Java SE Development Kit(JDK)</a>.
+
+2) Install <a href="https://developer.android.com/studio/index.html">Android Studio</a> Choose a "Custom" setup when prompted. Make sure the boxes next to all of the following are checked:
+
+* Android SDK
+* Android SDK Platform
+* Performance (Intel ® HAXM)
+* Android Virtual Device
+
+3) Click "Next".
+
+4) Launch Android Studio.
+
+5) Click on "Configure" and select "SDK Manager".
+
+6) Select the "SDK Platforms" tab.
+
+7) Put a checkmark next to "Android API 28", "Android 8.0", "Android 6.0 (Marshmallow)," "Android 7.0," and "Android 7.1.1."
+
+8) Go to the "SDK Tools" tab.
+
+9) Put checkmarks next to :
+
+* Android SDK Build-Tools
+* Android SDK Platform-Tools
+* Android SDK Tools
+* Android Emulator
+* Intel x86 Emulator Accelerator (HAXM installer)
+* Under the Support Repository, put a checkmark at "Android Support Repository"
+
+10) Click "OK".
+
+11) Follow the on-screen directions to install the requested components.
+
+12) If you are on a Windows machine, please install the Intel x86 Emulator Accelerator through the Android SDK Manager, if prompted.
+
+13) If you are on a Windows or Linux machine, please make sure to enable Virtualization Technology in your BIOS settings.
+
+14) If you are on a Windows machine:
+
+a) Open Android Studio. Go to "File" and then click "Project Structure." Make sure this box is checked: "Use embedded JDK(recommended)." Please copy the Android SDK location (e.g. C:\User\userName\AppData\Local\Android\Sdk); we'll be using it shortly.
+
+b) Open the System Control Panel. Click on "Advanced system settings." Click on "Environment Variables." Create a new variable ANDROID_HOME and set it to the Android SDK location you copied before.
+
+Create a new variable JAVA_HOME and set it to the installation path for the Java Development Kit (e.g. C:\Program Files\Java\jdk1.8.0_171).
+
+15) If you are on a macOS or Linux:
+
+a) Open Android Studio. Click on "Configure" and select "SDK Manager" again. Go to Appearance & Behavior -> System Settings -> Android SDK.
+
+b) Look at the path that’s filled in for the "Android SDK Location" section. It should be something like: /Users/yourName/Library/Android/sdk. If you are on macOS or Linux, add the Android SDK location to your PATH using ~/.bash_profile or ~/.bash_rc (e.g. echo 'export PATH=$PATH:~/Library/Android/sdk/'>>~/.bash_profile).
+
+c) On macOS, you will also need to add platform-tools to your ~/.bash_profile or ~/.bash_rc (e.g. echo 'export PATH=$PATH:~/Library/Android/sdk/platform-tools' >>~/.bash_profile, source ~/.bash_profile).
+
+d) Make sure that you can run adb from your terminal.
+
+## Part 2
+
+You have a choice of either using the Android Studio Emulator or Genymotion as your simulator. You don't have to install both.
+
+<strong>Directions for Setting up the Android Studio Emulator</strong>
+
+1) Open Android Studio.
+
+2) Click "Start a new Android Studio project". You don't need to change any of the settings; just click through to "Finish". Click "Finish".
+
+3) Once a new project is created, look at the messages inside the Gradle Console.
+
+![Gradle](https://github.com/budostylz/ReactJS/blob/master/React%20Native/error.png "Gradle")
+
+If you see any error messages that prompt you to install additional software, please install it.
+
+4) Select "Tools" --> "AVD Manager". Ensure that there's a checkmark next to "Enable ADB Integration".
+
+5) Click "Create Virtual Device".
+
+6) Select the system image you want and click "Download".
+
+![System Image](https://github.com/budostylz/ReactJS/blob/master/React%20Native/systemimage.png "System Image")
+
+7) Once the download completes, click "Next" and "Finish".
+
+8) Click the play button.
+
+![Virtual Devices](https://github.com/budostylz/ReactJS/blob/master/React%20Native/virtualdevices.png "Virtual Devices")
+
+Directions for Setting up Genymotion
+
+1. Download and install <a href="https://www.genymotion.com/">Genymotion(it is free for personal use)</a>.
+2. Set up an Android emulator by selecting the type of phone you want to emulate and wait for the setup to complete.
+3. Open Genymotion and navigate to "Settings" and then "ADB". Select "Use custom Android SDK tools," and update it with your Android SDK location (e.g. /Users/yourName/Library/Android/sdk).
+4. Restart GenyMotion.
+5. Got to "Settings". Go to "ADB" and make sure there is a checkmark next to "Android SDK successfully found".
+6. Run npm install -g exp to install exp globally.
+7. Run exp path. This will save your PATH environment variable so that XDE knows where to find your Android tools.
+8. Close Android Studio if you still have it open. Check to make sure that Android Studio is no longer running.
+9. Start the GenyMotion Emulator by clicking "Start".
+
+The majority of these instructions are from the <a href="https://docs.expo.io/versions/latest/">Genymotion documentation</a>.
+
+💡 Bundling Error (Unexpected Token)💡
+
+If you're seeing bundling errors while attempting to run a simulator, try changing your Babel preset for React Native to version 2.1.0. Then, remove your node-modules directory, reinstall with npm install, and run the simulator again. For more information, check out <a href="https://stackoverflow.com/questions/45725376/react-native-starter-project-bundling-fails-with-unexpected-token-error">this post</a> on Stack Overflow.
+
+💡 Error: Cannot Connect to Daemon💡
+
+If you see this message "Couldn't start project on Android: could not install *smartsocket* listener: cannot bind to 127.0.0.1:5037: Only one usage of each socket address (protocol/network address/port) is normally permitted. Could not read ok from ADB Server. Failed to start daemon. Error: cannot connect to daemon," please restart your computer and try again.
+
+If you're trying to run your project on the iOS simulator and are getting the error message below, please go to the App Store and update your Xcode. Then, open Xcode and install additional required software, if prompted. Open your project's app.json file and edit the value of sdkVersion to match the required version listed in the error message (e.g. 21.0.0). Then, run rm -rf .node_modules && yarn install && yarn run ios --reset-cache.
+
+
+
+
 
 
