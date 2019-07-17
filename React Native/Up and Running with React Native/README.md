@@ -29,4 +29,48 @@ This process of creating an object representation of the DOM is the whole idea b
 
 <a href="https://medium.com/dailyjs/12-common-questions-about-react-native-74fc9ba49b17">12 Common Questions from Working with React Native</a>
 
+# Dev Environment Setup
+
+## Create React Native App
+When we build our app throughout this course, we'll be building it for both Android and iOS. One of the puzzles at hand is that we'll need to support two separate development environments: iOS uses <a href="https://developer.apple.com/xcode/">Xcode</a>, and Android uses <a href="https://developer.android.com/studio/index.html">Android Studio</a>. This introduces a lot of complexity into this course; after all, both Xcode and Android Studio could probably each be their own set of courses!
+
+Luckily for us, there's a new tool we can use that will allow us to develop for both Android and iOS without ever opening up Android Studio or Xcode. It's called, not surprisingly, Create React Native App. It's similar to Create React App in that all you have to do is install the CLI via NPM. Then, via the CLI, you can easily scaffold a brand new React Native project.
+
+Just like Create React App, there are pros and cons to using Create React Native App (CRNA). First, the pros.
+
+## Create React Native App Pros
+The obvious one is that Create React Native app minimizes the amount of time it takes to create a "hello world" application. The fact that you can run a command in your terminal and 15 seconds later have a project that run on both Android and iOS using JavaScript is pretty incredible. Next, and we'll look deeper into this one later on, Create React Native App allows you to easily develop on your own device. This way, any changes you make in your text editor will instantly show on the app running on your local phone. Next, and this is something I mentioned earlier, with Create React Native App you just need one build tool. You don't have to worry about Xcode or Android Studio. Lastly, there's no lock in. Just like Create React App, you can "eject" at anytime.
+
+## Create React Native Cons
+Now, there are some cons, and granted they're pretty minor, but they're good to be aware of. First, if you're building an app that's going to be added to an existing native iOS or Android application, Create React Native App won't work. Second, if you need to build your own bridge between React Native and some native API that Create React Native App doesn't expose (which is pretty rare), Create React Native App won't work.
+
+Let's jump right in!
+
+## Install Create React Native App
+In order to use Create React Native App, go ahead and install it once globally:
+
+        npm install -g create-react-native-app
+
+Alternatively, feel free to use yarn as well (visit <a href="https://yarnpkg.com/lang/en/docs/install/#windows-stable">here</a> for setup instructions):
+
+        yarn global add create-react-native-app
+
+Note that Create React Native App uses <a href="https://forums.expo.io/t/is-create-react-native-app-retired/14452/2">Expo CLI under the hood</a>. You can get up and running with React Native using the instructions on this page, but feel free to visit the React Native <a href="https://facebook.github.io/react-native/docs/getting-started.html">Quick Start</a> guide if you prefer to use "vanilla" Expo CLI as an alternative.
+
+⚠️ Using Yarn ⚠️
+Create React Native App does not currently work well with NPM v5, due to <a href="https://github.com/react-community/create-react-native-app/issues/233#issuecomment-305638103">bugs in NPM</a>. While there should be no issues with NPM v3 or v4, we'll be using yarn from here on out just to be safe.
+
+## Expo
+https://youtu.be/Aav5VVqwnzQ
+
+Expo is a service that makes just about everything involving React Native a whole lot easier. The idea behind Expo is that there's no need to use Android Studio or Xcode. What's more: it even allows us to develop for iOS with Windows (or even Linux)!
+
+With Expo, you can load and run projects built by Create React Native App with the same JavaScript you already know. There's no need to compile any native code. And much like Create React App, using Expo with Create React Native App lets us get an application up and running with almost no configuration.
+
+We'll be relying on Expo heavily in this course. First things first: you need to install Expo. Head to the app store and install the Expo mobile app for your device:
+
+* <a href="https://apps.apple.com/us/app/expo-client/id982107779">Expo on Google Play</a> (Android)
+* <a href="https://apps.apple.com/us/app/expo-client/id982107779">Expo on the App Store</a> (iOS)
+
+
 
