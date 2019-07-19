@@ -215,6 +215,48 @@ If you see this message "Couldn't start project on Android: could not install *s
 If you're trying to run your project on the iOS simulator and are getting the error message below, please go to the App Store and update your Xcode. Then, open Xcode and install additional required software, if prompted. Open your project's app.json file and edit the value of sdkVersion to match the required version listed in the error message (e.g. 21.0.0). Then, run rm -rf .node_modules && yarn install && yarn run ios --reset-cache.
 
 
+## Create React App
+https://youtu.be/wV7rkkMa5T0
+
+<a href="https://github.com/udacity/reactnd-UdaciFitness-complete/commit/5fcff9e5f24616402a8503cf16c4df0328bd4397">Commit</a>
+
+⚠️<a href="https://blog.expo.io/expo-cli-2-0-released-a7a9c250e99c">Expo CLI 2.0</a> ⚠️
+
+If you created your app using create-react-native-app, you may have noticed a graphical UI running in your web browser as well as slightly different information in your terminal. Expo CLI 2.0 powers the latest version of Create React Native App by default. Most of the information in the terminal remains the same, but to start the project, the directions advise to run expo start instead of npm start. If you download or clone the in-class project, you'll see exactly the same information in the terminal as is shown in the videos.
+
+## The Environment
+When creating an app with Create React Native App, what type of support should you expect?
+
+* ES5 and ES6 support
+* Object Spread Operator
+* Asynchronous functions
+* JSX (this is React, after all!)
+* <a href="https://flow.org/">Flow</a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch</a>
+
+Since we are using purely JavaScript to build mobile apps, this list should come as no surprise! Since Create * React Native App ships with Babel, feel free to check out the full list of <a href="https://github.com/facebook/react-native">supported transformations</a>.
+
+Before we start actually building our app, there are some files that are necessary for the project, but aren’t necessary for you to fully understand. Because of this, we’ll just give you the code and you can look over it if you’d like.
+
+<a href="https://github.com/udacity/reactnd-UdaciFitness-complete/commit/6ecbdd5a5685c819fb511e2fb5dc4de0d4dd0ab0">Commit</a>
+
+## Summary
+Create React Native App is similar to Create React App in that it scaffolds and builds a starter application with minimal configuration. This allows us to have an app up and running without the need for Xcode or Android Studio! Some of the benefits include:
+
+* Minimal "time to 'Hello World'"
+* Development on your own device via Expo
+* A single build tool
+* No lock-in (i.e., ejection at any time)
+
+You can also set up simulators to aid in development as well. But regardless of which platform we choose to develop for (iOS, Android), and which environment we're in (Mac, Windows, Linux) -- we're just building with the same old JavaScript that we're used to!
+
+# How to Debug
+As we've mentioned before, perhaps one of the best things about React Native is that it takes the development experience you're used to on the web, and brings it all to native development. Things like live reloading and debugging just work out of the box. Let's take a deeper dive into some of these features -- first with debugging!
+
+https://youtu.be/IDQnmsAUCdc
+
+## Refreshing the App
+https://youtu.be/VkSrgNZ7Jbk
 
 
 
