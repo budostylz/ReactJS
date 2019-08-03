@@ -214,6 +214,8 @@ If you see this message "Couldn't start project on Android: could not install *s
 
 If you're trying to run your project on the iOS simulator and are getting the error message below, please go to the App Store and update your Xcode. Then, open Xcode and install additional required software, if prompted. Open your project's app.json file and edit the value of sdkVersion to match the required version listed in the error message (e.g. 21.0.0). Then, run rm -rf .node_modules && yarn install && yarn run ios --reset-cache.
 
+![Expo Error](https://github.com/budostylz/ReactJS/blob/master/React%20Native/Up%20and%20Running%20with%20React%20Native/error.png "Expo Error")
+
 
 ## Create React App
 https://youtu.be/wV7rkkMa5T0
