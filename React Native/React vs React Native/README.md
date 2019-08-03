@@ -21,7 +21,7 @@ When developing your React Native projects, keep in mind that you're designing f
 ## Further Research
 <a href="https://developer.apple.com/design/human-interface-guidelines/ios/overview/interface-essentials">iOS Interface Essentials</a>
 
-## Common React Native Components
+# Common React Native Components
 https://youtu.be/9Nt1tXV3y0c
 
         When writing HTML, we're used to using <div> and <span> tags to define sections or to contain other elements on the page. In React Native, a similar principle applies, but this time we're using React Native's <View> component to build the application UI. Just like HTML's <div>, <View> components can accommodate several props (e.g. style), and can even be nested inside other <View> components!
