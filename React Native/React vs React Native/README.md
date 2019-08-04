@@ -140,6 +140,92 @@ Note that certain components are also platform-specific! Though you want to buil
 ## Summary
 React Native provides a variety of built-in components for developing mobile applications. While some support basic functionality in an application (e.g., text, images, lists), others offer more specialized functionality (e.g., pulling to refresh, displaying a loading indicator). Feel free to check out <a href="https://facebook.github.io/react-native/docs/components-and-apis.html">Components and APIs</a> in the React Native documentation for an exhaustive list.
 
+## Local Storage
+In order to persist data in a web application, we'd normally store the data in some sort of database. This prevents app data from being lost between page refreshes. Using localStorage, we can achieve a similar effect for the user by storing this data directly in their browser. Best of all -- data stored in localStorage has no expiration date. This means that even if a session ends (e.g. the browser tab is closed), data will not be lost!
+
+Feel free to check out Window.localStorage on MDN for an overview.
+
+Example: Saving to localStorage
+Let's say we're building a simple React and Redux application that lets users create and manage a list of tasks. Basic functionality allows users to add items to their task list, remove items, and mark items as completed.
+
+Assuming much of this data is kept in the application's store, how would we go about persisting this data? One way would be to save to localStorage each time that state is updated. That is, the store's state will be saved with each dispatch:
+
+        // store.js
+
+        import { createStore } from 'redux';
+        import Reducer from '../reducers/reducer';
+
+            const configureStore = () => {
+            const store = createStore(Reducer);
+
+            store.subscribe(() => {
+                localStorage.state = JSON.stringify(store.getState());
+            });
+
+            return store;
+            };
+
+        export default configureStore;
+
+After the store is created, we call store.subscribe() and pass in a callback function. The callback effectively saves a JSON string of the store's state into localStorage. As a result, by subscribing to the store right after it is created, we can save data related to all of the user's tasks right into their browser!
+
+https://youtu.be/uO2dR3LPOs0
+
+The React Native documentation on <a href="https://facebook.github.io/react-native/docs/asyncstorage.html#methods">AsyncStorage</a> mentions:
+
+AsyncStorage is a simple, unencrypted, asynchronous, persistent, key-value storage system that is global to the app. It should be used instead of LocalStorage.
+
+In the next video, we'll see just how we can implement it into our app!
+
+https://youtu.be/243xzJEz7xo
+
+## Summary
+React Native's version of localStorage is AsyncStorage. Conveniently, since AsyncStorage is just an abstraction over iOS and Android equivalents, there's no need to consider the different environments.
+
+We took a close look at these 3 methods available on AsyncStorage:
+
+* setItem
+* mergeItem
+* getItem
+
+Feel free to visit the <a href="https://facebook.github.io/react-native/docs/asyncstorage.html#methods">documentation</a> for a complete list.
+
+In the next section, we'll incorporate Redux to help manage application state!
+
+## Redux and React Native
+https://youtu.be/byZUqYfW4e8
+
+## Adding Redux
+Recall that Redux is a predictable state container for JavaScript applications. It is agnostic to any particular view library or framework, so not only can we use it with React, but we can integrate it into React Native applications, as well!
+
+With its lean size and minimal dependencies, Redux is a great tool for React Native projects. And best of all: since React Native is still fundamentally just JavaScript, Redux can be added into projects the same way that we're used to. Let's check it out -- first, with building out actions!
+
+https://youtu.be/6g5KPHce0pQ
+
+<a href="https://github.com/udacity/reactnd-UdaciFitness-complete/commit/3aa5927c69939de2a7e36784548d703058cde5eb">Commit</a>
+
+https://youtu.be/AexQfrHWGd8
+
+<a href="https://github.com/udacity/reactnd-UdaciFitness-complete/commit/1bcb8b1094f41b648d41acbfcfc1cbe0aff99e15">Commit</a>
+
+💡 Forgot Redux?💡
+If you need a refresher on the principles of Redux, feel free to check out the previous course again, React & Redux! Since Redux is agnostic to any particular view library or framework, the same principles of Redux will apply to applications built with React Native as well.
+
+https://youtu.be/caJ0yapbikQ
+
+<a href="https://github.com/udacity/reactnd-UdaciFitness-complete/commit/170f06a5b58a7539ae10d483c1407c4697361d34">Commit</a>
+
+https://youtu.be/xLqJJJuyAE4
+
+<a href="https://github.com/udacity/reactnd-UdaciFitness-complete/commit/a3e78fe08ac785e6ce372ed37bfb5bcfa19851e3">Commit</a>
+
+
+
+
+
+
+
+
 
 
 
