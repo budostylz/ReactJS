@@ -223,6 +223,8 @@ If you're trying to run your project on the iOS simulator and are getting the er
 ## Create React App
 https://youtu.be/wV7rkkMa5T0
 
+create-react-native-app testapp
+
 <a href="https://github.com/udacity/reactnd-UdaciFitness-complete/commit/5fcff9e5f24616402a8503cf16c4df0328bd4397">Commit</a>
 
 ⚠️<a href="https://blog.expo.io/expo-cli-2-0-released-a7a9c250e99c">Expo CLI 2.0</a> ⚠️
