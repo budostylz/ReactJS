@@ -149,6 +149,9 @@ There's a lot of content in this section broken down into the following sections
 ## Flexbox Axes
 By far, the most important concept to understand when it comes to flexbox is that flexbox is all about different <a href="https://www.quora.com/What-is-the-plural-form-of-axis-1?redirected_qid=153694">axes<a>. You'll have a Main Axis and a Cross Axis.
 
+![Main and Cross Axes](https://github.com/budostylz/ReactJS/blob/master/React%20Native/Styling%20%26%20Layout/main_cross_axes.PNG "Main and Cross Axes")
+
+
 
 
 
