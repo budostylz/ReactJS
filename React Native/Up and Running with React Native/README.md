@@ -1,3 +1,6 @@
+## Jealous Chocolates (React Native Simulators)
+https://snack.expo.io/
+
 # Intro
 https://youtu.be/0iWIw2EnuU0
 
@@ -259,7 +262,3 @@ https://youtu.be/IDQnmsAUCdc
 
 ## Refreshing the App
 https://youtu.be/VkSrgNZ7Jbk
-
-
-
-
