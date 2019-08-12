@@ -1,6 +1,8 @@
 # CSS in JS
 Before we jump into how CSS in JavaScript works, let's check out an example of some "normal" HTML and CSS:
 
+<a href="https://expo.github.io/vector-icons/" >Platform Icons</a>
+
 ```javascript
         <!-- index.css -->
         .avatar {
@@ -516,4 +518,216 @@ Flexbox containers comprise of two axes: a main axis, as well as a cross axis. S
 
 <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a>
 
+<a href="https://internetingishard.com/html-and-css/flexbox/">flexbox</a>
+
 <a href="http://flexboxfroggy.com/">FLEXBOX FROGGY</a>
+
+# Layout in React Native
+https://youtu.be/Yl69abRLGbY
+
+## React Native's Flexbox Implementation
+React Native implements flexbox for build layouts, but there are some key differences to keep in mind as you develop your applications. First, all containers in React Native are flex containers by default. Recall that in traditional CSS flexbox, you would normally define a flex container like so:
+
+```javascript
+
+/*example.css*/
+
+.container {
+  display: flex;
+}
+
+```
+
+However, this is completely unnecessary in React Native! By default, everything is display: flex;. You can just use the defaults as they are, without adding different properties or writing extra code.
+
+Another important distinction is how React Native handles flex-direction, a property that establishes the main axis (i.e., defining the direction in which flex items are placed). In web applications, items default to row. But since we're working on mobile devices, React Native sets the default to column, which lays out items vertically.
+
+One more major difference you'll encounter is how the flex property is used. On the web, flex specifies how a flex item grows or shrinks to manage the space around it (along the main axis). In React Native, flex is generally used with flex items that are on the same level, but hold different flex values. For example:
+
+## Other Differences
+In addition to the above, here is a list of defaults in other common CSS properties that React Native applies to components:
+
+```css
+
+box-sizing: border-box;
+position: relative;
+align-items: stretch;
+flex-shrink: 0;
+align-content: flex-start;
+border: 0 solid black;
+margin: 0;
+padding: 0;
+min-width: 0;
+
+```
+
+https://youtu.be/6ZgAFY6Lakg
+
+<a href="https://github.com/udacity/reactnd-UdaciFitness-complete/commit/4b145ff1126a60b026aaffc72970f46c5e8692d2">Commit</a>
+
+## Platform API
+Recall that React's approach to app development is "learn once, write anywhere." The goal is to use the same principles, technologies, and in the case of React Native -- the same code -- to develop applications. However, there may be cases that make sense to use distinct code for each mobile platform. For example, what if we wanted unique styling between iOS and Android visual components?
+
+React Native gives us a convenient way to organize and separate code through the Platform API. Let's check out an example!
+
+https://youtu.be/KtATaKs7qjQ
+
+https://youtu.be/vBIDOsEkUK8
+
+<a href="https://github.com/udacity/reactnd-UdaciFitness-complete/commit/c5c645478a1f631f7851463b80e216289b17b4d4">Commit</a>
+
+https://youtu.be/pW-iEnKf7Og
+
+<a href="https://github.com/udacity/reactnd-UdaciFitness-complete/commit/2c0d0b9ef0b36f53d793ae1452d2d20857bd9d96">Commit</a>
+
+https://youtu.be/nm8mq8__U8Q
+
+<a href="https://github.com/udacity/reactnd-UdaciFitness-complete/commit/93add38d61a4891ae40f8c295fda079f7c1cc5d6">Commit</a>
+
+💡 Dimensions API💡
+React Native also comes with <a href="https://facebook.github.io/react-native/docs/dimensions.html">Dimensions</a>, which allows you to select window's width and height in the user's device!
+
+First, make sure you pull the API from React Native:
+
+    import { Dimensions } from 'react-native';
+
+Then, you can simply grab the window sizes with the Dimensions API's get method:
+
+  const { width, height } = Dimensions.get('window');
+
+Feel free to use these measurements to, for example, plan how your <View>s will look.
+
+https://youtu.be/4edBztoh2rk
+
+<a href="https://github.com/udacity/reactnd-UdaciFitness-complete/commit/f2f0342661d87060376bf54c425793b4c3b239c9">Commit</a>
+
+https://youtu.be/6qWrHcBJF3c
+
+To install our calendar, run yarn add udacifitness-calendar.
+
+<a href="https://github.com/udacity/reactnd-UdaciFitness-complete/commit/57d249307036bc97c8b539fc3b5fcc38455a3419">Commit</a>
+
+https://youtu.be/t53XoUg4Dr4
+
+<a href="https://github.com/udacity/reactnd-UdaciFitness-complete/commit/556a167f9f773c128c6d982c27130fe7b0b27d82">Commit</a>
+
+https://youtu.be/z8IKGR5pmGM
+
+<a href="https://github.com/udacity/reactnd-UdaciFitness-complete/commit/cdcef7571fecac412cdb1995538114b0f36a91c7">Commit</a>
+
+https://youtu.be/0MY2yNuMiBg
+
+<a href="https://github.com/udacity/reactnd-UdaciFitness-complete/commit/1cc6fd9ce59e9acf6012aa5800b872ac98b5e209">Commit</a>
+
+## Summary
+React Native uses flexbox to manage layout in mobile applications. However, there are some minor distinctions between the official flexbox specification (i.e., CSS on the web) and React Native's own implementation. Most of these distinctions are just differences in default settings.
+
+Since differences also exist in how Android and iOS applications should look and feel, React Native also offers a Platform API, which we can leverage to style each platform independently.
+
+In the next section, we'll take a look at some common "gotchas" and best practices when styling components.
+
+## Further Research
+
+* <a href="https://medium.com/the-react-native-log/understanding-react-native-flexbox-layout-7a528200afd4">Understanding React Native flexbox layout</a>
+* <a href="https://facebook.github.io/react-native/docs/platform-specific-code.html">Platform Specific Code from the React Native docs</a>
+
+# How Professionals Handle Styling
+https://youtu.be/I3T17kupyv0
+
+## Styling: Stylesheet vs. Inline
+Earlier you were introduced to React Native’s StyleSheet API for creating “stylesheets” out of JavaScript objects. At first this approach may seem a little strange, but there are some reasons behind it. Primarily those reasons are code quality and performance. Let’s take a look at some comparisons in regards to code quality.
+
+```javascript
+
+<View style={{
+  borderRadius: 4,
+  borderWidth: 0.5,
+  borderColor: '#d6d7da',
+}}>
+  <Text style={[
+    {fontSize: 19, fontWeight: 'bold'}, 
+    props.isActive && { color: 'red' }
+  ]}>
+    Welcome
+  </Text>
+</View>
+
+
+```
+Above we have some JSX for a pretty simple UI. Notice, that even though this UI is rather simple, the styling of it makes it rather messy. This is perhaps the biggest benefit to the StyleSheet API: by moving styles away from the render function, the code becomes easier to read and understand. Not only that, but naming the styles is a good way to make components a little more declarative. With the StyleSheet API, we can change the code above to now look like this:
+
+```javascript
+
+var styles = StyleSheet.create({
+  container: {
+    borderRadius: 4,
+    borderWidth: 0.5,
+    borderColor: '#d6d7da',
+  },
+  title: {
+    fontSize: 19,
+    fontWeight: 'bold',
+  },
+  activeTitle: {
+    color: 'red',
+  },
+});
+
+<View style={styles.container}>
+  <Text style={[styles.title, props.isActive && styles.activeTitle]} />
+</View>
+
+```
+
+On top of quality benefits, there are also performance benefits as well. Making a stylesheet from a style object makes it possible to refer to it by ID instead of creating a new style object every render.
+
+## Media Queries
+One thing you may have noticed is that React Native (and specifically the StyleSheet API) doesn’t support <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">media queries</a>. The reason for this is because, for the most part, you can design responsive grids with flexbox which will bypass the need to use media queries. In the rare case where flexbox just won’t work for your specific needs, you can use the <a href="https://facebook.github.io/react-native/docs/dimensions.html">Dimensions</a> API which we covered earlier to get similar results.
+
+## CSS in JS Libraries
+Styling in React is going through a renaissance period right now just as Flux did a few years ago (which eventually gave us Redux). There are many different styling libraries popping up and each has different tradeoffs.
+
+Two of the most popular are <a href="https://github.com/robinpowered/glamorous-native">Glamorous</a>and <a href="https://github.com/styled-components/styled-components">Styled Components</a>. The whole idea of both of these libraries is that styling is a primary concern of the component and because of that, should be coupled with the component itself.
+
+Let’s take a look at not only the Styled Components library, but also how you’d use it with React Native.
+
+https://youtu.be/XF_4MPpvRqs
+
+## Summary
+In this section we took a deeper look into the benefits of the StyleSheet API as well as the Styled Components API and how it works on React Native.
+
+## Further Research
+For further research on Styled Components, you can visit the <a href="https://www.styled-components.com/">official documentation</a>.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
