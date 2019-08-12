@@ -58,7 +58,7 @@ https://youtu.be/tl8blRR_nc0
 ## Summary
 In this concept, we saw how to use Expo's Location property to watch the user's current location using watchPositionAsync. For further reading, feel free to check out the <a href="https://docs.expo.io/versions/latest/sdk/location/?redirected">official documentation</a>.
 
-## Animations
+# Animations
 https://youtu.be/lyM8LcmrdS8
 
 Animations are a fundamental aspect of any native application. Because of this, React Native comes built in with an animations library called Animated. The whole idea of Animated is that it "focuses on declarative relationships between inputs and outputs, with configurable transforms in between, and simple start/stop methods to control time-based animation execution." In other words, Animated allows you to establish different types of transformations on specific values. For example, you could easily animate an image's opacity property from 0 to 1, giving the effect that the image is slowly appearing.
@@ -109,7 +109,7 @@ https://youtu.be/sGdXitMsRTE
 Summary
 In this section, you learned how to add local notifications to your app using Expo's Notifications property. For further reading, you can visit the <a href="https://docs.expo.io/versions/latest/sdk/notifications/?redirected">official documentation</a>.
 
-## Handling Photos
+# Handling Photos
 https://youtu.be/WVCmP3-0_ic
 
 
