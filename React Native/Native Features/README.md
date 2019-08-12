@@ -170,7 +170,7 @@ https://youtu.be/IryVgEQ0SvE
 The hardest part about uploading your application to either app store is generating a .ipa or .apk file. Because we covered that in the previous section, we're not going to cover the entire process of actually uploading your app. The following documents should help you: <a href="https://developer.apple.com/support/app-store-connect/#//apple_ref/doc/uid/TP40011225-CH38-SW1">for iOS</a>, Uploading a Build for an App and <a href="https://support.google.com/googleplay/android-developer/answer/113469?hl=en">for Android</a>, Upload an App.
 
 ## Summary
-In this section we learned about preparing your application for the app store and generating .apk and .ipa files. For further reading, feel free t ocheck out <a href="https://docs.expo.io/versions/latest/distribution/building-standalone-apps/?redirected">Building Standalone Apps with Expo</a>
+In this section we learned about preparing your application for the app store and generating .apk and .ipa files. For further reading, feel free to check out <a href="https://docs.expo.io/versions/latest/distribution/building-standalone-apps/?redirected">Building Standalone Apps with Expo</a>
 
 <a href="11 mistakes I’ve made during React Native / Redux app development">11 mistakes I’ve made during React Native / Redux app development</a>
 
