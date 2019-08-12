@@ -515,4 +515,5 @@ React Native leverages a version of flexbox to build component layout. This is p
 Flexbox containers comprise of two axes: a main axis, as well as a cross axis. Some of the more critical properties to consider when building layouts with flexbox include flex-direction, justify-content, and align-items. React Native's implementation of flexbox _is_ a bit different, however. We'll see just how in the very next section!
 
 <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a>
+
 <a href="http://flexboxfroggy.com/">FLEXBOX FROGGY</a>
