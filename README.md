@@ -86,6 +86,12 @@ https://medium.com/javascript-scene/unit-testing-react-components-aeda9a44aae2
 ## React Calendar Demo
 https://codesandbox.io/s/2z6wp2jozn
 
+## React Native Database – Choosing the right database for your React Native app
+https://www.simform.com/react-native-database-selection-guide/
+
+## React Native Database – Choosing the right database for your React Native app
+https://www.simform.com/react-native-database-selection-guide/
+
 ## Template for Building React/ Redux Projects
 
 ## Planning Stage 📐
@@ -133,11 +139,6 @@ Take a look at <a href="https://redux.js.org/faq/organizing-state">Organizing St
 
 <strong>Step 8</strong> - Add finishing touches and make sure the project meets the specifications.
 
-## React Native Database – Choosing the right database for your React Native app
-https://www.simform.com/react-native-database-selection-guide/
-
-## React Native Database – Choosing the right database for your React Native app
-https://www.simform.com/react-native-database-selection-guide/
 
 
 
