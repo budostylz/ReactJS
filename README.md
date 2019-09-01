@@ -89,9 +89,6 @@ https://codesandbox.io/s/2z6wp2jozn
 ## React Native Database – Choosing the right database for your React Native app
 https://www.simform.com/react-native-database-selection-guide/
 
-## React Native Database – Choosing the right database for your React Native app
-https://www.simform.com/react-native-database-selection-guide/
-
 ## Template for Building React/ Redux Projects
 
 ## Planning Stage 📐
