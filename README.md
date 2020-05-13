@@ -84,6 +84,9 @@ https://fullcalendar.io/docs/react
 ## React Calendar Demo
 https://codesandbox.io/s/2z6wp2jozn
 
+## React Native Database – Choosing the right database for your React Native app
+https://www.simform.com/react-native-database-selection-guide/
+
 ## Template for Building React/ Redux Projects
 
 ## Planning Stage 📐
@@ -131,6 +134,12 @@ Take a look at <a href="https://redux.js.org/faq/organizing-state">Organizing St
 
 <strong>Step 8</strong> - Add finishing touches and make sure the project meets the specifications.
 
+
+## React Tests
+[React Tests](https://blog.logrocket.com/end-to-end-testing-react-apps-with-puppeteer-and-jest-ce2f414b4fd7/)
+
+## Popular JavaScript Testing Frameworks
+[Popular JavaScript Testing Frameworks](https://www.lambdatest.com/blog/top-javascript-automation-testing-framework/)
 
 
 
