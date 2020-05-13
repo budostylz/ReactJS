@@ -135,11 +135,6 @@ Take a look at <a href="https://redux.js.org/faq/organizing-state">Organizing St
 <strong>Step 8</strong> - Add finishing touches and make sure the project meets the specifications.
 
 
-## React Tests
-[React Tests](https://blog.logrocket.com/end-to-end-testing-react-apps-with-puppeteer-and-jest-ce2f414b4fd7/)
-
-## Popular JavaScript Testing Frameworks
-[Popular JavaScript Testing Frameworks](https://www.lambdatest.com/blog/top-javascript-automation-testing-framework/)
 
 
 
