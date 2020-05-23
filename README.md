@@ -2,6 +2,11 @@
 # React JavaScript
 https://reactjs.org/
 
+<<<<<<< HEAD
+=======
+# Create a React app from scratch with Webpack and Babel
+https://www.sentinelstand.com/article/create-react-app-from-scratch-with-webpack-and-babel
+>>>>>>> 85a44724d5eb85199272f981ce447556ad7cc118
 
 ## React Sandbox
 https://codesandbox.io/s/new?file=/src/App.js
