@@ -2,8 +2,12 @@
 # React JavaScript
 https://reactjs.org/
 
+
 ## React Sandbox
 https://codesandbox.io/s/new?file=/src/App.js
+
+## The Offline Cookbook
+https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook
 
 ## Markdown Basic Syntax
 https://www.markdownguide.org/basic-syntax/
@@ -92,6 +96,8 @@ https://www.simform.com/react-native-database-selection-guide/
 
 ## React Sandbox
 https://codesandbox.io/s/delicate-rain-m2jky?file=/src/index.js
+
+[Where does npm install packages?](https://stackoverflow.com/questions/5926672/where-does-npm-install-packages)
 
 ## Template for Building React/ Redux Projects
 
