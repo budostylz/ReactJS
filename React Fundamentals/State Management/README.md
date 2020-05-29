@@ -270,6 +270,7 @@ https://www.duncanleung.com/blog/2017-07-15-avoiding-react-setstate-pitfalls/
 ## Forms
 https://reactjs.org/docs/forms.html
 
+## State
 [Avoiding React setState() Pitfalls](https://duncanleung.com/avoiding-react-setstate-pitfalls/)
 
 [How to NOT React: Common Anti-Patterns and Gotchas in React](https://codeburst.io/how-to-not-react-common-anti-patterns-and-gotchas-in-react-40141fe0dcd?gi=6f64da292ef0)
