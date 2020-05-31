@@ -11,3 +11,5 @@ https://medium.com/javascript-scene/unit-testing-react-components-aeda9a44aae2
 [Popular JavaScript Testing Frameworks](https://www.lambdatest.com/blog/top-javascript-automation-testing-framework/)
 
 [Proactively understand frontend performance in your React apps](https://www2.logrocket.com/react-performance-monitoring)
+
+[Prop Types](https://www.npmjs.com/package/prop-types)
