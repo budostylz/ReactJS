@@ -121,6 +121,9 @@ componentDidMount() is one of a number of lifecycle events that React offers. co
 ## Further Research
 componentDidMount() from the React Docs
 
+[Lifecycle Methods](https://reactjs.org/docs/react-component.html#the-component-lifecycle)
+
+[Lifecycle Methods Cheat Sheet](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 
 
 
