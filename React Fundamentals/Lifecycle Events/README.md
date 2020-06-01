@@ -125,8 +125,13 @@ componentDidMount() from the React Docs
 
 [Lifecycle Methods Cheat Sheet](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 
+[Understanding the React Component Lifecycle](http://busypeoples.github.io/post/react-component-lifecycle)
 
+[React component’s lifecycle](https://medium.com/react-ecosystem/react-components-lifecycle-ce09239010df)
 
+[Understanding React — Component life-cycle](https://medium.com/@baphemot/understanding-reactjs-component-life-cycle-823a640b3e8d) 
+
+[React JS: what is a PureComponent?](http://lucybain.com/blog/2018/react-js-pure-component/) 
 
 
 
