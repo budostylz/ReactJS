@@ -133,7 +133,7 @@ componentDidMount() from the React Docs
 
 [React JS: what is a PureComponent?](http://lucybain.com/blog/2018/react-js-pure-component/) 
 
-
+[React Top-Level API, Component and PureComponent](https://reactjs.org/docs/react-api.html)
 
 
 
