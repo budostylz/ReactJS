@@ -183,6 +183,13 @@ https://youtu.be/24lu6iVQHro
 ## Further Learning
 If you're interested in learning more about React Router, we recommend these two resources. First, Build your own React Router v4 will walk through how to implement your own mini version of React Router to better understand its implementation details. Next, is React Training's official documentation for React Router. Feel free to also check out Tyler McGinnis's React Router course as well!
 
+
+[React Training](https://reacttraining.com/)
+
+[History](https://github.com/ReactTraining/history)
+
+[Hooks](https://reacttraining.com/react-router/web/api/Hooks/uselocation)
+
 ## Build your own React Router v4
 https://tylermcginnis.com/build-your-own-react-router-v4/
 
