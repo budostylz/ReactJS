@@ -188,7 +188,7 @@ If you're interested in learning more about React Router, we recommend these two
 
 [History](https://github.com/ReactTraining/history)
 
-[Hooks](https://reacttraining.com/react-router/web/api/Hooks/uselocation)
+[Hooks](https://reacttraining.com/react-router/web/api/Hooks)
 
 ## Build your own React Router v4
 https://tylermcginnis.com/build-your-own-react-router-v4/
