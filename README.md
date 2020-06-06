@@ -153,7 +153,7 @@ Take a look at <a href="https://redux.js.org/faq/organizing-state">Organizing St
 ### Gig Points
 
 
-![OOP](https://github.com/budostylz/PHP-Laravel/blob/master/s6/images/namespace1.png)
+![Resume](https://github.com/budostylz/ReactJS/blob/master/res.PNG)
 
 
 
