@@ -1,3 +1,6 @@
+[Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
+
+
 # The Store
 view index.js
 

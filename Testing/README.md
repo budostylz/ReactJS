@@ -13,3 +13,7 @@ https://medium.com/javascript-scene/unit-testing-react-components-aeda9a44aae2
 [Proactively understand frontend performance in your React apps](https://www2.logrocket.com/react-performance-monitoring)
 
 [Prop Types](https://www.npmjs.com/package/prop-types)
+
+[Test Utilities](https://reactjs.org/docs/test-utils.html#shallow-rendering)
+
+[Jest](https://jestjs.io/)
