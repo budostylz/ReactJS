@@ -150,7 +150,10 @@ Take a look at <a href="https://redux.js.org/faq/organizing-state">Organizing St
 
 <strong>Step 8</strong> - Add finishing touches and make sure the project meets the specifications.
 
+### Gig Points
 
+
+![OOP](https://github.com/budostylz/PHP-Laravel/blob/master/s6/images/namespace1.png)
 
 
 
