@@ -4,6 +4,8 @@
 
 [Sandbox](https://codesandbox.io/dashboard/recent)
 
+## Let's try React without Node.js
+[Let's try React without Node.js](https://dev.to/luispa/lets-try-react-without-nodejs-3a7)
 ## Create a React app from scratch with Webpack and Babel
 https://www.sentinelstand.com/article/create-react-app-from-scratch-with-webpack-and-babel
 
